@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/MOSPA/app/views/Printers/index.blade.php
