@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/MOSPA/app/views/3DModels/edit.blade.php

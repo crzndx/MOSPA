@@ -1,5 +1,8 @@
 <?php
 
 class Material extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = [
+		'name',
+		'priceId'
+	];
 }

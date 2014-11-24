@@ -11,22 +11,22 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+
+Route::resource('printers', 'PrintersController@index');
+
+Route::resource('dashboard', 'DashboardsController@index');
+Route::resource('dashboards', 'DashboardsController@index');
+
+Route::resource('materials', 'MaterialsController@index');
+
+Route::resource('prices', 'PricesController@index');
+
+Route::resource('manufacturers', 'ManufacturersController');
+
+Route::resource('threeDimModels', 'ThreeDimModelsController');
 
 Route::get('/test', function() {
 	return View::make('test');
 });
 
-
-
-
-Route::resource('Printers', 'PrintersController');
-
-Route::resource('3DModels', '3DModelsController');
-
-Route::resource('Materials', 'MaterialsController');
-
-Route::resource('Prices', 'PricesController');
+Route::resource('/', 'DashboardsController@index');

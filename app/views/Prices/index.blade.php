@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/MOSPA/app/views/Prices/index.blade.php

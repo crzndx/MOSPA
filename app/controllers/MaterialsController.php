@@ -10,7 +10,7 @@ class MaterialsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('pages.Materials.index');
 	}
 
 	/**

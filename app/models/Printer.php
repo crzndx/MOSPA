@@ -1,5 +1,8 @@
 <?php
 
 class Printer extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = [
+		'name',
+		'materialId'
+	];
 }

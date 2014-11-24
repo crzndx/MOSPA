@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/MOSPA/app/views/Manufacturers/show.blade.php

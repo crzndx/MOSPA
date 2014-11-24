@@ -10,7 +10,7 @@ class PrintersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "what";
+		return View::make('pages.Printers.index');
 	}
 
 	/**
@@ -21,7 +21,7 @@ class PrintersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('pages.Printers.create');
 	}
 
 	/**
@@ -44,7 +44,7 @@ class PrintersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return View::make('pages.Printers.show');
 	}
 
 	/**
@@ -56,7 +56,7 @@ class PrintersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('pages.Printers.edit');
 	}
 
 	/**

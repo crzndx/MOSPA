@@ -10,7 +10,7 @@ class PricesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('pages.Prices.index');
 	}
 
 	/**
