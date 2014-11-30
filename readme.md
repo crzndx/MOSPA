@@ -12,8 +12,8 @@ cd ~/htdocs // existing directory of your choice
 git clone <paste Git-clone-URL here>
 ```
 
-after cloning from git, install Composer on your OS first via https://getcomposer.org/
-After installation of Composer run:
+After cloning from git, install Composer on your OS first via https://getcomposer.org/
+On installation of Composer run:
 
 ```
 composer install
@@ -26,15 +26,15 @@ composer create-project laravel/laravel <insert project name here>
 ```
 
 Set database settings to work correctly with local SQLite instance
-see File: /bptm/app/config/database.php
+See File: /app/config/database.php
 
-afterwards run the following command in project home folder
+Afterwards run the following command in project home folder
 
 ```
 php artisan migrate
 ```
 
-to finish and run the project, serve the application with
+To finish and run the project, serve the application with
 
 ```
 php artisan serve
