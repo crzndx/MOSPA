@@ -10,7 +10,22 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.ThreeDimModels.index');
+		$allThreeDimModels = ThreeDimModel::all();
+
+		return View::make('pages.ThreeDimModels.index', [
+			'threeDimModels' => $allThreeDimModels
+		]);
+	}
+
+	/**
+	 * Display a JSON listing of the resource.
+	 * GET /threeDimModels/json
+	 *
+	 * @return Response
+	 */
+	public function json()
+	{
+		return Response::json(ThreeDimModel::all());
 	}
 
 	/**

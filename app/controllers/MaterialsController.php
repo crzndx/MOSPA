@@ -10,7 +10,22 @@ class MaterialsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.Materials.index');
+		$allMaterials= Material::all();
+
+		return View::make('pages.Materials.index', [
+			'materials' => $allMaterials
+		]);
+	}
+
+	/**
+	 * Display a JSON listing of the resource.
+	 * GET /materials/json
+	 *
+	 * @return Response
+	 */
+	public function json()
+	{
+		return Response::json(Material::all());
 	}
 
 	/**

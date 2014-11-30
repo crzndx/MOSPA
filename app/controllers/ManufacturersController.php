@@ -10,7 +10,28 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.Manufacturers.index');
+		$allManufacturers = Manufacturer::all();
+
+		return View::make('pages.Manufacturers.index', [
+			'manufacturers' => $allManufacturers
+		]);
+	}
+
+	public function sum()
+	{
+		$allManufacturers = Manufacturer::all();
+		return count($allManufacturers);
+	}
+
+	/**
+	 * Display a JSON listing of the resource.
+	 * GET /manufacturers/json
+	 *
+	 * @return Response
+	 */
+	public function json()
+	{
+		return Response::json(Manufacturer::all());
 	}
 
 	/**
@@ -21,7 +42,7 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return "create seite manufacturers";
 	}
 
 	/**

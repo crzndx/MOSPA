@@ -11,22 +11,27 @@
 |
 */
 
+/* Simple pages */
+Route::get('dashboard', 'DashboardsController@index');
+Route::get('dashboards', 'DashboardsController@index');
+Route::get('/', 'DashboardsController@index');
 
-Route::resource('printers', 'PrintersController@index');
+/* JSON responses for models*/
+Route::get('printers/json','PrintersController@json');
+Route::get('materials/json','MaterialsController@json');
+Route::get('prices/json','PricesController@json');
+Route::get('manufacturers/json','ManufacturersController@json');
+Route::get('threeDimModels/json','ThreeDimModelsController@json');
 
-Route::resource('dashboard', 'DashboardsController@index');
-Route::resource('dashboards', 'DashboardsController@index');
-
-Route::resource('materials', 'MaterialsController@index');
-
-Route::resource('prices', 'PricesController@index');
-
+/* Basic CRUD routes */
+Route::resource('printers', 'PrintersController');
+Route::resource('materials', 'MaterialsController');
+Route::resource('prices', 'PricesController');
 Route::resource('manufacturers', 'ManufacturersController');
-
 Route::resource('threeDimModels', 'ThreeDimModelsController');
 
+/*
 Route::get('/test', function() {
 	return View::make('test');
 });
-
-Route::resource('/', 'DashboardsController@index');
+*/

@@ -10,7 +10,22 @@ class PricesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.Prices.index');
+		$allPrices = Price::all();
+
+		return View::make('pages.Prices.index', [
+			'prices' => $allPrices
+		]);
+	}
+
+	/**
+	 * Display a JSON listing of the resource.
+	 * GET /prices/json
+	 *
+	 * @return Response
+	 */
+	public function json()
+	{
+		return Response::json(Price::all());
 	}
 
 	/**

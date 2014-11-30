@@ -10,7 +10,22 @@ class PrintersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.Printers.index');
+		$allPrinters = Printer::all();
+
+		return View::make('pages.Printers.index', [
+			'printers' => $allPrinters
+		]);
+	}
+
+	/**
+	 * Display a JSON listing of the resource.
+	 * GET /printers/json
+	 *
+	 * @return Response
+	 */
+	public function json()
+	{
+		return Response::json(Printer::all());
 	}
 
 	/**

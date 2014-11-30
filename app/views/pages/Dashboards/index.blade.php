@@ -15,7 +15,7 @@
 							<i class="fa fa-shopping-cart fa-4x"></i>
 						</div>
 						<div class="col-xs-9 text-right">
-							<div class="huge">26</div>
+							<div class="huge">312</div>
 							<div>Manufacturers</div>
 						</div>
 					</div>
