@@ -25,6 +25,7 @@ class PricesController extends \BaseController {
 	 */
 	public function json()
 	{
+		//return "prices json";
 		return Response::json(Price::all());
 	}
 

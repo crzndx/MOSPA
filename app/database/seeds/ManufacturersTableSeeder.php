@@ -9,11 +9,14 @@ class ManufacturersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
-			Manufacturer::create([
-
-			]);
+			Manufacturer::create(array(
+				'id' => $index,
+				'name' => $faker->company,
+				'url' => $faker->url,
+				'printerId' => $faker->numberBetween(0,100)
+			));
 		}
 	}
 

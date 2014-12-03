@@ -42,7 +42,7 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return "create seite manufacturers";
+		//
 	}
 
 	/**

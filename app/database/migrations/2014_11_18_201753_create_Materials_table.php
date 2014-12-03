@@ -16,7 +16,7 @@ class CreateMaterialsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->float('priceId');
+			$table->integer('priceId');
 			$table->timestamps();
 		});
 	}

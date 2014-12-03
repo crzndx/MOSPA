@@ -9,11 +9,13 @@ class PricesTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
-			Price::create([
-
-			]);
+			Price::create(array(
+				'id' => $index,
+				'currency' => $faker->randomElement(array('EUR','USD','YEN','GBP')),
+				'price' => $faker->randomFloat()
+			));
 		}
 	}
 

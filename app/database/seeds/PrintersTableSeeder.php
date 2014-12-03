@@ -9,11 +9,13 @@ class PrintersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
-			Printer::create([
-
-			]);
+			Printer::create(array(
+				'id' => $index,
+				'name' => 'Printer #'.$index,
+				'materialId' => $faker->randomNumber(0,100)
+			));
 		}
 	}
 

@@ -22,7 +22,7 @@
 			<td>{{{ $manufacturer->id }}}</td>
 			<td>{{{ $manufacturer->name }}}</td>
 			<td>{{{ $manufacturer->url }}}</td>
-			<td>{{{ $manufacturer->printerID }}}</td>
+			<td>{{{ $manufacturer->printerId }}}</td>
 		</tr>
 		@endforeach
 		</tbody>

@@ -25,6 +25,7 @@ class PrintersController extends \BaseController {
 	 */
 	public function json()
 	{
+		//return "asdf";
 		return Response::json(Printer::all());
 	}
 

@@ -9,11 +9,19 @@ class ThreeDimModelsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
-			ThreeDimModel::create([
-
-			]);
+			ThreeDimModel::create(array(
+				'id' => $index,
+				'name' => 'Model #'.$index,
+				'materialId' => $faker->numberBetween(0,100),
+				'printerId' => $faker->numberBetween(0,100),
+				'x' => $faker->randomFloat(),
+				'y' => $faker->randomFloat(),
+				'z' => $faker->randomFloat(),
+				'volume' => $faker->randomFloat(),
+				'weight' => $faker->randomFloat()
+			));
 		}
 	}
 
