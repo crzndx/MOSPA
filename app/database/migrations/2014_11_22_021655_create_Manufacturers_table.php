@@ -18,6 +18,7 @@ class CreateManufacturersTable extends Migration {
 			$table->string('name');
 			$table->string('url')->nullable();
 			$table->integer('printerId');
+			$table->foreign('printerId')->references('id')->on('Printers')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
