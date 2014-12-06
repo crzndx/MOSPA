@@ -10,7 +10,19 @@ class DashboardsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.Dashboards.index');
+
+		$sum_printers = Printer::all()->count();
+		$sum_manufacturers = Manufacturer::all()->count();
+		$sum_materials = Material::all()->count();
+		$sum_prices = Price::all()->count();
+		$sum_threeDimModels = ThreeDimModel::all()->count();
+
+		return View::make('pages.Dashboards.index')
+			->with('allPrinters',$sum_printers)
+			->with('allManufacturers',$sum_manufacturers)
+			->with('allMaterials',$sum_materials)
+			->with('allPrices',$sum_prices)
+			->with('allThreeDimModels',$sum_threeDimModels);
 	}
 
 	/**
