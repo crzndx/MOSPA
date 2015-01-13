@@ -34,10 +34,23 @@ Afterwards run the following command in project home folder
 php artisan migrate
 ```
 
+as well as
+
+```
+php artisan db:seed
+```
+
 To finish and run the project, serve the application with
 
 ```
 php artisan serve
+```
+
+
+In case you need to reset/rollback the DB, try
+
+```
+php artisan migrate:rollback
 ```
 
 Have fun!
