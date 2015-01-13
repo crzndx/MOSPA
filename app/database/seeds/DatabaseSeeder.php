@@ -16,6 +16,14 @@ class DatabaseSeeder extends Seeder {
 		$this->call('PricesTableSeeder');
 		$this->call('PrintersTableSeeder');
 		$this->call('ThreeDimModelsTableSeeder');
-	}
+
+		// relations
+		$this->call('ManufacturerPrinterTableSeeder');
+		$this->call('MaterialPriceTableSeeder');
+		$this->call('MaterialPrinterTableSeeder');
+		$this->call('MaterialThreeDimModelTableSeeder');
+		$this->call('PriceThreeDimModelTableSeeder');
+
+		}
 
 }

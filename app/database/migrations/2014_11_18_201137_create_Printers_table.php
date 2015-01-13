@@ -15,10 +15,7 @@ class CreatePrintersTable extends Migration {
 		Schema::create('Printers', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->primary('id');
 			$table->string('name');
-			$table->integer('materialId');
-			$table->foreign('materialId')->references('id')->on('Materials')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

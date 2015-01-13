@@ -12,7 +12,6 @@
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
-			<th>MaterialId</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -20,7 +19,6 @@
 		<tr>
 			<td>{{{ $printer->id }}}</td>
 			<td>{{{ $printer->name }}}</td>
-			<td>{{{ $printer->materialId }}}</td>
 		</tr>
 		@endforeach
 		</tbody>

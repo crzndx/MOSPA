@@ -38,5 +38,17 @@ Route::get('/test', function() {
 
 
 Route::get('/test', function() {
-	return Printer::all()->count();
+
+
+$ret = Manufacturer::find(1)->printers;
+
+	return Response::json($ret);
+
+
+
+//	return Printer::all()->count();
 });
+
+
+
+

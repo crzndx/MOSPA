@@ -13,7 +13,6 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>URL</th>
-			<th>printerId</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -22,12 +21,10 @@
 			<td>{{{ $manufacturer->id }}}</td>
 			<td>{{{ $manufacturer->name }}}</td>
 			<td>{{{ $manufacturer->url }}}</td>
-			<td>{{{ $manufacturer->printerId }}}</td>
 		</tr>
 		@endforeach
 		</tbody>
 	</table>
-
 </div>
 <!-- /row -->
 @stop

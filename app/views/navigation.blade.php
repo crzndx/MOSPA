@@ -11,7 +11,7 @@
 <!-- /.navbar-header -->
 
 <ul class="nav navbar-top-links navbar-right">
-<li class="dropdown">
+<!-- <li class="dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
 	</a>
@@ -62,7 +62,7 @@
 	<!-- /.dropdown-messages -->
 </li>
 <!-- /.dropdown -->
-<li class="dropdown">
+<!--<li class="dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
 	</a>
@@ -141,7 +141,7 @@
 	<!-- /.dropdown-tasks -->
 </li>
 <!-- /.dropdown -->
-<li class="dropdown">
+<!--<li class="dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
 	</a>
@@ -211,7 +211,7 @@
 		<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 		</li>
 		<li class="divider"></li>
-		<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+		<li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 		</li>
 	</ul>
 	<!-- /.dropdown-user -->
@@ -329,29 +329,6 @@
 					</li>
 					<li>
 						<a href="/prices/delete">Delete Price</a>
-					</li>
-				</ul>
-				<!-- /.nav-second-level -->
-			</li>
-
-
-
-			<li>
-				<a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-			</li>
-
-			<li>
-				<a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-			</li>
-
-			<li>
-				<a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-				<ul class="nav nav-second-level">
-					<li>
-						<a href="blank.html">Blank Page</a>
-					</li>
-					<li>
-						<a href="login.html">Login Page</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->

@@ -9,12 +9,12 @@ class MaterialsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 100) as $index)
+		$rand = rand(1,100);
+		foreach(range(1, $rand) as $index)
 		{
 			Material::create(array(
 				'id' => $index,
-				'name' => 'Material #'.$index,
-				'priceId' => $faker->numberBetween(0,100)
+				'name' => 'Material #'.$index
 			));
 		}
 	}

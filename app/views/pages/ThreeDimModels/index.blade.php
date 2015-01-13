@@ -7,12 +7,15 @@
 @section('content')
 <div class="row correctpadding">
 
+	@foreach($priceOfModels as $model)
+		{{ $model }} <br>
+	@endforeach
+
 	<table class="table table-bordered">
 		<thead>
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
-			<th>MaterialId</th>
 			<th>x</th>
 			<th>y</th>
 			<th>z</th>
@@ -25,7 +28,6 @@
 		<tr>
 			<td>{{{ $threeDimModel->id }}}</td>
 			<td>{{{ $threeDimModel->name }}}</td>
-			<td>{{{ $threeDimModel->materialId }}}</td>
 			<td>{{{ $threeDimModel->x }}}</td>
 			<td>{{{ $threeDimModel->y }}}</td>
 			<td>{{{ $threeDimModel->z }}}</td>

@@ -22,7 +22,7 @@
 			<td>{{{ $price->id }}}</td>
 			<td>{{{ $price->price }}}</td>
 			<td>{{{ $price->currency }}}</td>
-			<td>{{{ $price->price }}}{{{ $price->currency }}}</td>
+			<td>{{{ $price->price }}} {{{ $price->currency }}}</td>
 
 		</tr>
 		@endforeach

@@ -10,11 +10,25 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$allManufacturers = Manufacturer::all();
+		/*$allManufacturers = Manufacturer::all();
 
 		return View::make('pages.Manufacturers.index', [
 			'manufacturers' => $allManufacturers
 		]);
+	*/
+
+
+		$allManufacturers = Manufacturer::all();
+
+		$printerOfManufacturer = Printer::find(1);
+
+		$printerOfManufacturer->manufacturer;
+
+
+
+		return View::make('pages.Manufacturers.mf', [
+			'allManufacturers' => $allManufacturers
+		])->with('printerOfManufacturer', $printerOfManufacturer);
 	}
 
 	public function sum()

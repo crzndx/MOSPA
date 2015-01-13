@@ -12,9 +12,16 @@ class ThreeDimModelsController extends \BaseController {
 	{
 		$allThreeDimModels = ThreeDimModel::all();
 
+		//$priceOfModel = ThreeDimModel::find(1)->price;
+
+		$priceOfModels = array();
+		foreach($allThreeDimModels as $threedimmodel) {
+			array_push($priceOfModels, $threedimmodel->price);
+		}
+
 		return View::make('pages.ThreeDimModels.index', [
 			'threeDimModels' => $allThreeDimModels
-		]);
+		])->with('priceOfModels', $priceOfModels);
 	}
 
 	/**

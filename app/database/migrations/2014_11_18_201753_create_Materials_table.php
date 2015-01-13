@@ -15,10 +15,7 @@ class CreateMaterialsTable extends Migration {
 		Schema::create('Materials', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->primary('id');
 			$table->string('name');
-			$table->integer('priceId');
-			$table->foreign('priceId')->references('id')->on('Prices')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
