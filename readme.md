@@ -1,8 +1,12 @@
 # MOSPA
-## 3D Model Open Source Pricing API
+## 3D Model Open Source Pricing Assessor
+
+![MOSPA Logo](/screen.png)
 
 This is the first attempt to implement a publicly available pricing API for 3D Models.
 Follow the instructions given below to create your own instance of MOSPA.
+
+***
 
 ## Installation
 
