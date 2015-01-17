@@ -1,5 +1,5 @@
 # MOSPA
-## 3D Model Open Source Pricing Assessor
+## 3D Model Open Source Price Assessor
 
 ![MOSPA Logo](/screen.png)
 
