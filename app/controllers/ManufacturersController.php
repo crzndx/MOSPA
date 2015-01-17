@@ -10,14 +10,29 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function index()
 	{
+		$allManufacturers = Manufacturer::all();
+
+		return View::make('pages.Manufacturers.index', [
+			'manufacturers' => $allManufacturers
+		]);
+	}
+
+	/**
+	 * Display joined tables
+	 * GET /manufacturers/joined
+	 *
+	 * @return Response
+	 */
+	public function joined()
+	{
 		/*$allManufacturers = Manufacturer::all();
 
 		return View::make('pages.Manufacturers.index', [
 			'manufacturers' => $allManufacturers
 		]);
-	*/
+		*/
 
-
+		/*
 		$allManufacturers = Manufacturer::all();
 
 		$printerOfManufacturer = Printer::find(1);
@@ -26,10 +41,16 @@ class ManufacturersController extends \BaseController {
 
 
 
+
 		return View::make('pages.Manufacturers.mf', [
 			'allManufacturers' => $allManufacturers
 		])->with('printerOfManufacturer', $printerOfManufacturer);
+
+		return Response::json($printerOfManufacturer);
+		*/
+		return Response::json(Manufacturer::all());
 	}
+
 
 	public function sum()
 	{
@@ -56,7 +77,7 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('pages.Manufacturers.create');
 	}
 
 	/**
@@ -67,7 +88,19 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Manufacturer::$rules);
+
+		if ($validation->passes()) {
+			Manufacturer::create($input);
+			Session::flash('message', 'Created new manufacturer successfully');
+			return Redirect::route('manufacturers.index');
+		}
+
+		return Redirect::route('manufacturers.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Could not complete due to validation errors.');
 	}
 
 	/**
@@ -79,7 +112,11 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$manufacturer = Manufacturer::find($id);
+
+		return View::make('pages.Manufacturers.detail', [
+			'manufacturer' => $manufacturer
+		]);
 	}
 
 	/**
@@ -91,7 +128,11 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$manufacturer = Manufacturer::find($id);
+
+		return View::make('pages.Manufacturers.edit', [
+			'manufacturer' => $manufacturer
+		]);
 	}
 
 	/**
@@ -103,7 +144,23 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Manufacturer::$rules);
+
+		if ($validation->passes()) {
+
+			$manufacturer = Manufacturer::find($id);
+			$manufacturer->name = Input::get('name');
+			$manufacturer->url = Input::get('url');
+			$manufacturer->save();
+
+
+			Session::flash('message', 'Updated manufacturer successfully');
+			return Redirect::route('manufacturers.index');
+		} else {
+			Session::flash('message', 'Could not update manufacturer');
+			return Redirect::to('manufacturers/'.$id.'/edit')->withErrors($validation);
+		}
 	}
 
 	/**
@@ -115,7 +172,15 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$manufacturer = Manufacturer::find($id);
+
+		if($manufacturer != null) {
+			$manufacturer->delete();
+			Session::flash('message', 'Deleted successfully');
+		} else {
+			Session::flash('message', 'Could not find entry. Deletion aborted.');
+		}
+		return Redirect::route('manufacturers.index');
 	}
 
 

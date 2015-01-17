@@ -16,6 +16,10 @@ Route::get('dashboard', 'DashboardsController@index');
 Route::get('dashboards', 'DashboardsController@index');
 Route::get('/', 'DashboardsController@index');
 
+/* joined pages */
+Route::get('manufacturers/joined','ManufacturersController@joined');
+
+
 /* JSON responses for models*/
 Route::get('printers/json','PrintersController@json');
 Route::get('materials/json','MaterialsController@json');
@@ -38,15 +42,9 @@ Route::get('/test', function() {
 
 
 Route::get('/test', function() {
-
-
-$ret = Manufacturer::find(1)->printers;
-
+	$ret = Manufacturer::find(1)->printers;
 	return Response::json($ret);
-
-
-
-//	return Printer::all()->count();
+	//return Printer::all()->count();
 });
 
 

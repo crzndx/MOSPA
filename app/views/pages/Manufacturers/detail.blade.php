@@ -1,24 +1,29 @@
 @extends('layout')
 
 @section('title')
-Manufactuerer AND printer
+	Manufacturer
 @stop
 
 @section('content')
 <div class="row correctpadding">
 
-	Printer of ID1: {{ $printerOfManufacturer }} <br>
-
+	<h2>{{{ $manufacturer->name }}}</h2>
 	<table class="table table-bordered">
-		@foreach($allManufacturers as $manufacturer)
+		<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>URL</th>
+		</tr>
+		</thead>
+		<tbody>
 		<tr>
 			<td>{{{ $manufacturer->id }}}</td>
 			<td>{{{ $manufacturer->name }}}</td>
+			<td>{{{ $manufacturer->url }}}</td>
 		</tr>
-		@endforeach
 		</tbody>
 	</table>
-
 </div>
 <!-- /row -->
 @stop
