@@ -243,16 +243,10 @@
 				<a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Manufacturers<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
 					<li>
-						<a href="/manufacturers">List all Manufacturers</a>
+						<a href="{{ URL::to('manufacturers') }}">List all Manufacturers</a>
 					</li>
 					<li>
-						<a href="/manufacturers/create">Add new Manufacturer</a>
-					</li>
-					<li>
-						<a href="/manufacturers/edit">Edit Manufacturer</a>
-					</li>
-					<li>
-						<a href="/manufacturers/delete">Delete new Manufacturer</a>
+						<a href="{{ URL::to('manufacturers/create') }}">Add new Manufacturer</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->
@@ -262,16 +256,10 @@
 				<a href="#"><i class="fa fa-wrench fa-fw"></i> Materials<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
 					<li>
-						<a href="/materials">List all Materials</a>
+						<a href="{{ URL::to('materials') }}">List all Materials</a>
 					</li>
 					<li>
-						<a href="/materials/create">Add new Materials</a>
-					</li>
-					<li>
-						<a href="/materials/edit">Edit Materials</a>
-					</li>
-					<li>
-						<a href="/materials/delete">Delete new Materials</a>
+						<a href="{{ URL::to('materials/create') }}">Add new Materials</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->
@@ -281,16 +269,10 @@
 				<a href="#"><i class="fa fa-print fa-fw"></i> Printers<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
 					<li>
-						<a href="/printers">List all Printers</a>
+						<a href="{{ URL::to('printers') }}">List all Printers</a>
 					</li>
 					<li>
-						<a href="/printers/create">Add new Printer</a>
-					</li>
-					<li>
-						<a href="/printers/edit">Edit Printer</a>
-					</li>
-					<li>
-						<a href="/printers/delete">Delete Printer</a>
+						<a href="{{ URL::to('printers/create') }}">Add new Printer</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->
@@ -300,16 +282,10 @@
 				<a href="#"><i class="fa fa-cube fa-fw"></i> 3D Models<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
 					<li>
-						<a href="/threeDimModels">List all 3D Models</a>
+						<a href="{{ URL::to('threeDimModels') }}">List all 3D Models</a>
 					</li>
 					<li>
-						<a href="/threeDimModels/create">Add new 3D Model</a>
-					</li>
-					<li>
-						<a href="/threeDimModels/edit">Edit 3D Model</a>
-					</li>
-					<li>
-						<a href="/threeDimModels/delete">Delete 3D Model</a>
+						<a href="{{ URL::to('threeDimModels/create') }}">Add new 3D Model</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->
@@ -319,16 +295,10 @@
 				<a href="#"><i class="fa fa-money fa-fw"></i> Prices<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
 					<li>
-						<a href="/prices">List all Prices</a>
+						<a href="{{ URL::to('prices') }}">List all Prices</a>
 					</li>
 					<li>
-						<a href="/prices/create">Add new Price</a>
-					</li>
-					<li>
-						<a href="/prices/edit">Edit Price</a>
-					</li>
-					<li>
-						<a href="/prices/delete">Delete Price</a>
+						<a href="{{ URL::to('prices/create') }}">Add new Price</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->
