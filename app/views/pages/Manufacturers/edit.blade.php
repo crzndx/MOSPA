@@ -5,8 +5,6 @@ Edit Manufacturer
 @stop
 
 @section('content')
-<div class="row correctpadding">
-
 	@if (Session::has('message'))
 	<div class="alert alert-info">{{ Session::get('message') }}</div>
 	@endif
@@ -43,7 +41,6 @@ Edit Manufacturer
 	</div>
 	@endif
 
-	@stop
-</div>
+@stop
 <!-- /row -->
 @stop

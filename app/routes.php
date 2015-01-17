@@ -34,19 +34,19 @@ Route::resource('prices', 'PricesController');
 Route::resource('manufacturers', 'ManufacturersController');
 Route::resource('threeDimModels', 'ThreeDimModelsController');
 
-/*
+
 Route::get('/test', function() {
 	return View::make('test');
 });
-*/
 
 
+/*
 Route::get('/test', function() {
 	$ret = Manufacturer::find(1)->printers;
 	return Response::json($ret);
 	//return Printer::all()->count();
 });
-
+*/
 
 
 

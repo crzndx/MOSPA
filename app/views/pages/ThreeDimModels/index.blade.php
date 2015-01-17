@@ -5,7 +5,6 @@
 @stop
 
 @section('content')
-<div class="row correctpadding">
 
 	@foreach($priceOfModels as $model)
 		{{ $model }} <br>
@@ -39,6 +38,5 @@
 		</tbody>
 	</table>
 
-</div>
 <!-- /row -->
 @stop

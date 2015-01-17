@@ -68,7 +68,9 @@
 	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+<div class="row correctpadding">
 	@yield('content')
+</div>
 <!-- /#page-wrapper -->
 
 </div>

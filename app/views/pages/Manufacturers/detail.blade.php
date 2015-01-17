@@ -5,8 +5,6 @@
 @stop
 
 @section('content')
-<div class="row correctpadding">
-
 	<h2>{{{ $manufacturer->name }}}</h2>
 	<table class="table table-bordered">
 		<thead>
@@ -24,6 +22,5 @@
 		</tr>
 		</tbody>
 	</table>
-</div>
-<!-- /row -->
+	<!-- /row -->
 @stop

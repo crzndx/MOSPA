@@ -5,8 +5,6 @@
 @stop
 
 @section('content')
-<div class="row correctpadding">
-
 	<table class="table table-bordered">
 		<thead>
 		<tr>
@@ -23,7 +21,4 @@
 		@endforeach
 		</tbody>
 	</table>
-
-</div>
-<!-- /row -->
 @stop
