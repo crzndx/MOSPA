@@ -5,7 +5,7 @@ Material
 @stop
 
 @section('content')
-<h2>{{{ $mateerial->name }}}</h2>
+<h2>{{{ $material->name }}}</h2>
 <table class="table table-bordered">
 	<thead>
 	<tr>

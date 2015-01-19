@@ -37,7 +37,7 @@ class PricesController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('pages.Prices.create');
 	}
 
 	/**
@@ -48,7 +48,19 @@ class PricesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Price::$rules);
+
+		if ($validation->passes()) {
+			Price::create($input);
+			Session::flash('message', 'Created new pricepoint successfully');
+			return Redirect::route('prices.index');
+		}
+
+		return Redirect::route('prices.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Could not complete due to validation errors.');
 	}
 
 	/**
@@ -60,7 +72,11 @@ class PricesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$price = Price::find($id);
+
+		return View::make('pages.Prices.detail', [
+			'price' => $price
+		]);
 	}
 
 	/**
@@ -72,7 +88,11 @@ class PricesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$price = Price::find($id);
+
+		return View::make('pages.Prices.edit', [
+			'price' => $price
+		]);
 	}
 
 	/**
@@ -84,7 +104,22 @@ class PricesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Price::$rules);
+
+		if ($validation->passes()) {
+
+			$price = Price::find($id);
+			$price->currency = Input::get('currency');
+			$price->price = Input::get('price');
+			$price->save();
+
+			Session::flash('message', 'Updated pricepoint successfully');
+			return Redirect::route('prices.index');
+		} else {
+			Session::flash('message', 'Could not update pricepoint');
+			return Redirect::to('prices/'.$id.'/edit')->withErrors($validation);
+		}
 	}
 
 	/**
@@ -96,7 +131,15 @@ class PricesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$price = Price::find($id);
+
+		if($price != null) {
+			$price->delete();
+			Session::flash('message', 'Deleted successfully');
+		} else {
+			Session::flash('message', 'Could not find entry. Deletion aborted.');
+		}
+		return Redirect::route('prices.index');
 	}
 
 }

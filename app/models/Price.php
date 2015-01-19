@@ -2,6 +2,13 @@
 
 class Price extends \Eloquent {
 	protected $table = "Prices";
+	protected $guarded = array('_token');
+
+	public static $rules = array(
+		'id' => 'required|numeric',
+		'currency' => 'required',
+		'price' => 'required|numeric'
+	);
 
 	public function material() {
 		return $this->belongsToMany('Material');
