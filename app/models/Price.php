@@ -6,7 +6,7 @@ class Price extends \Eloquent {
 
 	public static $rules = array(
 		'id' => 'required|numeric',
-		'currency' => 'required',
+		'currency' => 'required|min:1',
 		'price' => 'required|numeric'
 	);
 

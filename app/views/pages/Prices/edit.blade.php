@@ -12,7 +12,7 @@ Edit Price
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model($material, array('route' => array('prices.update', $price->id), 'method' => 'PUT')) }}
+{{ Form::model($price, array('route' => array('prices.update', $price->id), 'method' => 'PUT')) }}
 
 
 <div class="form-group">
@@ -21,8 +21,8 @@ Edit Price
 </div>
 
 <div class="form-group">
-	{{ Form::label('name', 'Currency:') }}
-	{{ Form::text('name', $price->currency, array('class' => 'form-control')) }}
+	{{ Form::label('currency', 'Currency:') }}
+	{{ Form::text('currency', $price->currency, array('class' => 'form-control')) }}
 </div>
 
 <div class="form-group">
