@@ -36,7 +36,7 @@ class MaterialsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('pages.Materials.create');
 	}
 
 	/**
@@ -47,7 +47,19 @@ class MaterialsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Material::$rules);
+
+		if ($validation->passes()) {
+			Material::create($input);
+			Session::flash('message', 'Created new material successfully');
+			return Redirect::route('materials.index');
+		}
+
+		return Redirect::route('materials.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Could not complete due to validation errors.');
 	}
 
 	/**
@@ -59,7 +71,11 @@ class MaterialsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$material = Material::find($id);
+
+		return View::make('pages.Materials.detail', [
+			'material' => $material
+		]);
 	}
 
 	/**
@@ -71,7 +87,11 @@ class MaterialsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$material = Material::find($id);
+
+		return View::make('pages.Materials.edit', [
+			'material' => $material
+		]);
 	}
 
 	/**
@@ -83,7 +103,21 @@ class MaterialsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Material::$rules);
+
+		if ($validation->passes()) {
+
+			$material = Material::find($id);
+			$material->name = Input::get('name');
+			$material->save();
+
+			Session::flash('message', 'Updated material successfully');
+			return Redirect::route('materials.index');
+		} else {
+			Session::flash('message', 'Could not update material');
+			return Redirect::to('materials/'.$id.'/edit')->withErrors($validation);
+		}
 	}
 
 	/**
@@ -95,7 +129,15 @@ class MaterialsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$material = Material::find($id);
+
+		if($material != null) {
+			$material->delete();
+			Session::flash('message', 'Deleted successfully');
+		} else {
+			Session::flash('message', 'Could not find entry. Deletion aborted.');
+		}
+		return Redirect::route('materials.index');
 	}
 
 }
