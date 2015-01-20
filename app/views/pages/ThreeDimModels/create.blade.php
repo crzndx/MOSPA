@@ -1,1 +1,65 @@
-/Applications/MAMP/htdocs/MOSPA/app/views/ThreeDimModels/create.blade.php
+@extends('layout')
+
+@section('title')
+Create new 3D Model
+@stop
+
+@section('content')
+@if (Session::has('message'))
+<div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
+{{ Form::open(array('route' => 'threeDimModels.store')) }}
+<div class="form-group">
+	{{ Form::label('id', 'ID:') }}
+	{{ Form::number('id', Input::old('id'), array('class' => 'form-control', 'placeholder' => 'ID')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('name', 'Name:') }}
+	{{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Fancy object name')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('x', 'x-Dimension:') }}
+	{{ Form::text('x', Input::old('x'), array('class' => 'form-control', 'placeholder' => '1234')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('y', 'y-Dimension:') }}
+	{{ Form::text('y', Input::old('y'), array('class' => 'form-control', 'placeholder' => '4321')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('z', 'z-Dimension:') }}
+	{{ Form::text('z', Input::old('z'), array('class' => 'form-control', 'placeholder' => '2111')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('volume', 'Volume (in cbm):') }}
+	{{ Form::text('volume', Input::old('volume'), array('class' => 'form-control', 'placeholder' => '5553')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::label('weight', 'Weight (in kg):') }}
+	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-control', 'placeholder' => '0.120')) }}
+</div>
+
+<div class="form-group">
+	{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+</div>
+{{ Form::close() }}
+
+@if ($errors->any())
+<div class="alert-warning">
+	{{ implode('', $errors->all('<li class="error">:message</li>')) }}
+</div>
+@endif
+
+@stop
+<!-- /row -->
+
+
+
+
+

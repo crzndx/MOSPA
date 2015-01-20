@@ -2,6 +2,17 @@
 
 class ThreeDimModel extends \Eloquent {
 	protected $table = "ThreeDimModels";
+	protected $guarded = array('_token');
+
+	public static $rules = array(
+		'id' => 'required|numeric',
+		'name' => 'required|min:5',
+		'x' => 'required|numeric',
+		'y' => 'required|numeric',
+		'z' => 'required|numeric',
+		'volume' => 'required|numeric',
+		'weight' => 'required|numeric',
+	);
 
 	public function material() {
 		return $this->belongsToMany('Material');

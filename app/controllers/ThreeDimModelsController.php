@@ -10,6 +10,7 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function index()
 	{
+		/*
 		$allThreeDimModels = ThreeDimModel::all();
 
 		//$priceOfModel = ThreeDimModel::find(1)->price;
@@ -22,6 +23,12 @@ class ThreeDimModelsController extends \BaseController {
 		return View::make('pages.ThreeDimModels.index', [
 			'threeDimModels' => $allThreeDimModels
 		])->with('priceOfModels', $priceOfModels);
+		*/
+		$allThreeDimModels = ThreeDimModel::all();
+
+		return View::make('pages.ThreeDimModels.index', [
+			'threeDimModels' => $allThreeDimModels
+		]);
 	}
 
 	/**
@@ -43,7 +50,7 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('pages.ThreeDimModels.create');
 	}
 
 	/**
@@ -54,7 +61,19 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, ThreeDimModel::$rules);
+
+		if ($validation->passes()) {
+			ThreeDimModel::create($input);
+			Session::flash('message', 'Created new 3D Model successfully');
+			return Redirect::route('threeDimModels.index');
+		}
+
+		return Redirect::route('threeDimModels.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Could not complete due to validation errors.');
 	}
 
 	/**
@@ -66,7 +85,11 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$threeDimModel = ThreeDimModel::find($id);
+
+		return View::make('pages.ThreeDimModels.detail', [
+			'threeDimModel' => $threeDimModel
+		]);
 	}
 
 	/**
@@ -78,7 +101,11 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$threeDimModel = ThreeDimModel::find($id);
+
+		return View::make('pages.ThreeDimModels.edit', [
+			'threeDimModel' => $threeDimModel
+		]);
 	}
 
 	/**
@@ -90,7 +117,26 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, ThreeDimModel::$rules);
+
+		if ($validation->passes()) {
+
+			$threeDimModel = ThreeDimModel::find($id);
+			$threeDimModel->name = Input::get('name');
+			$threeDimModel->x = Input::get('x');
+			$threeDimModel->y = Input::get('y');
+			$threeDimModel->z = Input::get('z');
+			$threeDimModel->volume = Input::get('volume');
+			$threeDimModel->weight = Input::get('weight');
+			$threeDimModel->save();
+
+			Session::flash('message', 'Updated 3D model successfully');
+			return Redirect::route('threeDimModels.index');
+		} else {
+			Session::flash('message', 'Could not update printer');
+			return Redirect::to('threeDimModels/'.$id.'/edit')->withErrors($validation);
+		}
 	}
 
 	/**
@@ -102,7 +148,15 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$threeDimModel = ThreeDimModel::find($id);
+
+		if($threeDimModel != null) {
+			$threeDimModel->delete();
+			Session::flash('message', 'Deleted successfully');
+		} else {
+			Session::flash('message', 'Could not find entry. Deletion aborted.');
+		}
+		return Redirect::route('threeDimModels.index');
 	}
 
 }
