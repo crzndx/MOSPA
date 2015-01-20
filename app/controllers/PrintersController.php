@@ -48,7 +48,19 @@ class PrintersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Printer::$rules);
+
+		if ($validation->passes()) {
+			Printer::create($input);
+			Session::flash('message', 'Created new printer successfully');
+			return Redirect::route('printers.index');
+		}
+
+		return Redirect::route('printers.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Could not complete due to validation errors.');
 	}
 
 	/**
@@ -60,7 +72,11 @@ class PrintersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('pages.Printers.show');
+		$printer = Printer::find($id);
+
+		return View::make('pages.Printers.detail', [
+			'printer' => $printer
+		]);
 	}
 
 	/**
@@ -72,7 +88,11 @@ class PrintersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('pages.Printers.edit');
+		$printer = Printer::find($id);
+
+		return View::make('pages.Printers.edit', [
+			'printer' => $printer
+		]);
 	}
 
 	/**
@@ -84,7 +104,21 @@ class PrintersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validation = Validator::make($input, Printer::$rules);
+
+		if ($validation->passes()) {
+
+			$printer = Printer::find($id);
+			$printer->name = Input::get('name');
+			$printer->save();
+
+			Session::flash('message', 'Updated printer successfully');
+			return Redirect::route('printers.index');
+		} else {
+			Session::flash('message', 'Could not update printer');
+			return Redirect::to('printers/'.$id.'/edit')->withErrors($validation);
+		}
 	}
 
 	/**
@@ -96,7 +130,15 @@ class PrintersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$printer = Printer::find($id);
+
+		if($printer != null) {
+			$printer->delete();
+			Session::flash('message', 'Deleted successfully');
+		} else {
+			Session::flash('message', 'Could not find entry. Deletion aborted.');
+		}
+		return Redirect::route('printers.index');
 	}
 
 }
