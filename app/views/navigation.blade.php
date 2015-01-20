@@ -6,7 +6,9 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	</button>
-	<a class="navbar-brand" href="/">MOSPA</a>
+	<a class="navbar-brand" href="/">
+		<img src="/theme/images/logo_mospa.png" height="30px" width="30px" style="float: left; margin-top: -7px; margin-right: 13px;">
+		<span style="font-weight: 600;">MOSPA</span> - 3D Model Open Source Price Assessor</a>
 </div>
 <!-- /.navbar-header -->
 
