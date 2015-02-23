@@ -12,6 +12,7 @@ class ThreeDimModel extends \Eloquent {
 		'z' => 'required|numeric',
 		'volume' => 'required|numeric',
 		'weight' => 'required|numeric',
+        'data' => 'required'
 	);
 
 	public function material() {

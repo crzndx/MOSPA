@@ -21,6 +21,7 @@ class CreateThreeDimModelsTable extends Migration {
 			$table->float('z');
 			$table->float('volume');
 			$table->float('weight')->nullable();
+            $table->string('data');
 			$table->timestamps();
 		});
 	}

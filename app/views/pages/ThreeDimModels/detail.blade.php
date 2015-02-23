@@ -16,6 +16,7 @@
 		<th>z</th>
 		<th>Volume</th>
 		<th>Weight</th>
+        <th>File</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -27,6 +28,7 @@
 		<td>{{{ $threeDimModel->z }}}</td>
 		<td>{{{ $threeDimModel->volume }}}</td>
 		<td>{{{ $threeDimModel->weight }}}</td>
+        <td>{{{ $threeDimModel->data }}}</td>
 	</tr>
 	</tbody>
 </table>

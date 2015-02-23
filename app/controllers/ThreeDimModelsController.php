@@ -61,12 +61,23 @@ class ThreeDimModelsController extends \BaseController {
 	 */
 	public function store()
 	{
+        $file = Input::file('data');
 		$input = Input::all();
-		$validation = Validator::make($input, ThreeDimModel::$rules);
+        $validation = Validator::make($input, ThreeDimModel::$rules);
 
 		if ($validation->passes()) {
-			ThreeDimModel::create($input);
-			Session::flash('message', 'Created new 3D Model successfully');
+            // @ToDo check for correct mimetype validation and max filesize
+
+            // handle file input separately
+            $reName = md5($file->getClientOriginalName().time()).".stl";
+            // save .stl file in public folder to access via path later
+            $file->move(__DIR__.'/../../public/uploads/',$reName);
+
+            $input['data'] = $reName;
+
+            // save input data
+            ThreeDimModel::create($input);
+			Session::flash('success', 'Created new 3D Model successfully');
 			return Redirect::route('threeDimModels.index');
 		}
 
@@ -129,6 +140,7 @@ class ThreeDimModelsController extends \BaseController {
 			$threeDimModel->z = Input::get('z');
 			$threeDimModel->volume = Input::get('volume');
 			$threeDimModel->weight = Input::get('weight');
+            $threeDimModel->data = Input::get('data');
 			$threeDimModel->save();
 
 			Session::flash('message', 'Updated 3D model successfully');

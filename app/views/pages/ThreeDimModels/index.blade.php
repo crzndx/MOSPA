@@ -16,6 +16,7 @@
 			<th>z</th>
 			<th>volume</th>
 			<th>weight</th>
+            <th>Filepath</th>
 			<th>Edit?</th>
 			<th>Delete?</th>
 		</tr>
@@ -30,6 +31,7 @@
 			<td>{{{ $threeDimModel->z }}}</td>
 			<td>{{{ $threeDimModel->volume }}}</td>
 			<td>{{{ $threeDimModel->weight }}}</td>
+            <td>{{{ $threeDimModel->data }}}</td>
 			<td>{{ link_to_route('threeDimModels.edit', 'Edit', array($threeDimModel->id), array('class' => 'btn btn-info')) }}</td>
 			<td>
 				<!-- Button trigger modal -->

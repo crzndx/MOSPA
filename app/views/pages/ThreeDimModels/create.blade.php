@@ -9,7 +9,7 @@ Create new 3D Model
 <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-{{ Form::open(array('route' => 'threeDimModels.store')) }}
+{{ Form::open(array('route' => 'threeDimModels.store', 'files' => true )) }}
 <div class="form-group">
 	{{ Form::label('id', 'ID:') }}
 	{{ Form::number('id', Input::old('id'), array('class' => 'form-control', 'placeholder' => 'ID')) }}
@@ -44,6 +44,15 @@ Create new 3D Model
 	{{ Form::label('weight', 'Weight (in kg):') }}
 	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-control', 'placeholder' => '0.120')) }}
 </div>
+
+<div class="form-group">
+    {{ Form::label('data', 'Upload STL file:')}}
+    {{ Form::file('data') }}
+</div>
+
+
+
+
 
 <div class="form-group">
 	{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}

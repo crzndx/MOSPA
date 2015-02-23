@@ -51,6 +51,11 @@ Edit 3D Model
 </div>
 
 <div class="form-group">
+    {{ Form::label('data', 'File:') }}
+    {{ Form::text('data', $threeDimModel->data, array('class' => 'form-control')) }}
+</div>
+
+<div class="form-group">
 	{{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
 </div>
 {{ Form::close() }}
