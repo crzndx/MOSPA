@@ -22,6 +22,11 @@ Create new Material
 </div>
 
 <div class="form-group">
+    {{ Form::label('densityInGramsPerCm', 'Density (in g/cm^3:') }}
+    {{ Form::text('densityInGramsPerCm', Input::old('densityInGramsPerCm'), array('class' => 'form-control', 'placeholder' => '2.21')) }}
+</div>
+
+<div class="form-group">
 	{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
 </div>
 {{ Form::close() }}

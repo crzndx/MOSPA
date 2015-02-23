@@ -6,7 +6,8 @@ class Material extends \Eloquent {
 
 	public static $rules = array(
 		'id' => 'required|numeric',
-		'name' => 'required|min:3'
+		'name' => 'required|min:3',
+        'densityInGramsPerCm' => 'required|numeric'
 	);
 
 	public function printers() {

@@ -14,7 +14,8 @@ class MaterialsTableSeeder extends Seeder {
 		{
 			Material::create(array(
 				'id' => $index,
-				'name' => 'Material #'.$index
+				'name' => 'Material #'.$index,
+                'densityInGramsPerCm' => $faker->randomFloat()
 			));
 		}
 	}

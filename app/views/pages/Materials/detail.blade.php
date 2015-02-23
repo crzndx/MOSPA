@@ -11,12 +11,14 @@ Material
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
+        <th>Density (in g/cm^3)</th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr>
 		<td>{{{ $manufacturer->id }}}</td>
 		<td>{{{ $manufacturer->name }}}</td>
+        <td>{{{ $manufacturer->densityInGramsPerCm }}}</td>
 	</tr>
 	</tbody>
 </table>

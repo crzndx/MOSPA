@@ -69,7 +69,8 @@ class ThreeDimModelsController extends \BaseController {
             // @ToDo check for correct mimetype validation and max filesize
 
             // handle file input separately
-            $reName = md5($file->getClientOriginalName().time()).".stl";
+            $reName = $file->getClientOriginalName(); // version for debugging
+            // $reName = md5($file->getClientOriginalName().time()).".stl";  // near collission free version
             // save .stl file in public folder to access via path later
             $file->move(__DIR__.'/../../public/uploads/',$reName);
 

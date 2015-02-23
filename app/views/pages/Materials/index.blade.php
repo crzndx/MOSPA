@@ -10,6 +10,7 @@
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
+            <th>Density (in g/cm^3)</th>
 			<th>Edit?</th>
 			<th>Delete?</th>
 		</tr>
@@ -19,6 +20,7 @@
 		<tr>
 			<td>{{{ $material->id }}}</td>
 			<td>{{{ $material->name }}}</td>
+            <td>{{{ $material->densityInGramsPerCm }}}</td>
 			<td>{{ link_to_route('materials.edit', 'Edit', array($material->id), array('class' => 'btn btn-info')) }}</td>
 			<td>
 				<!-- Button trigger modal -->
