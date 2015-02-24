@@ -26,21 +26,6 @@ Edit 3D Model
 </div>
 
 <div class="form-group">
-	{{ Form::label('x', 'x-Dimension:') }}
-	{{ Form::text('x', $threeDimModel->x, array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
-	{{ Form::label('y', 'y-Dimension:') }}
-	{{ Form::text('y', $threeDimModel->y, array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
-	{{ Form::label('z', 'z-Dimension:') }}
-	{{ Form::text('z', $threeDimModel->z, array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
 	{{ Form::label('volume', 'Volume (in cbm):') }}
 	{{ Form::text('volume', $threeDimModel->volume, array('class' => 'form-control')) }}
 </div>

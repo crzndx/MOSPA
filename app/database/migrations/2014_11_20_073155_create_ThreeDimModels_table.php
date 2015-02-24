@@ -16,9 +16,6 @@ class CreateThreeDimModelsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name'); // maybe md5 of file?
-			$table->float('x');
-			$table->float('y');
-			$table->float('z');
 			$table->float('volume');
 			$table->float('weight')->nullable();
             $table->string('data');

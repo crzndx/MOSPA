@@ -40,6 +40,11 @@ Route::get('/test', function() {
 });
 
 
+Route::get('/nodetest/{name}', function($name) {
+    $output = shell_exec("node ./app/stlextractor.js ".$name);
+    echo $output;
+});
+
 /*
 Route::get('/test', function() {
 	$ret = Manufacturer::find(1)->printers;

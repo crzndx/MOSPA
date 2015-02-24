@@ -73,8 +73,13 @@ class ThreeDimModelsController extends \BaseController {
             // $reName = md5($file->getClientOriginalName().time()).".stl";  // near collission free version
             // save .stl file in public folder to access via path later
             $file->move(__DIR__.'/../../public/uploads/',$reName);
-
             $input['data'] = $reName;
+
+            // extract volume automatically via .STL-file
+            $output = shell_exec("node ./app/stlextractor.js ".$reName);
+            $volume = $output;
+            $input['volume'] = $volume;
+
 
             // save input data
             ThreeDimModel::create($input);
@@ -136,9 +141,6 @@ class ThreeDimModelsController extends \BaseController {
 
 			$threeDimModel = ThreeDimModel::find($id);
 			$threeDimModel->name = Input::get('name');
-			$threeDimModel->x = Input::get('x');
-			$threeDimModel->y = Input::get('y');
-			$threeDimModel->z = Input::get('z');
 			$threeDimModel->volume = Input::get('volume');
 			$threeDimModel->weight = Input::get('weight');
             $threeDimModel->data = Input::get('data');

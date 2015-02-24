@@ -7,9 +7,6 @@ class ThreeDimModel extends \Eloquent {
 	public static $rules = array(
 		'id' => 'required|numeric',
 		'name' => 'required|min:5',
-		'x' => 'required|numeric',
-		'y' => 'required|numeric',
-		'z' => 'required|numeric',
 		'volume' => 'required|numeric',
 		'weight' => 'required|numeric',
         'data' => 'required'

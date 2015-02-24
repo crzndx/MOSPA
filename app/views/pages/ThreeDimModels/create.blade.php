@@ -21,21 +21,6 @@ Create new 3D Model
 </div>
 
 <div class="form-group">
-	{{ Form::label('x', 'x-Dimension:') }}
-	{{ Form::text('x', Input::old('x'), array('class' => 'form-control', 'placeholder' => '1234')) }}
-</div>
-
-<div class="form-group">
-	{{ Form::label('y', 'y-Dimension:') }}
-	{{ Form::text('y', Input::old('y'), array('class' => 'form-control', 'placeholder' => '4321')) }}
-</div>
-
-<div class="form-group">
-	{{ Form::label('z', 'z-Dimension:') }}
-	{{ Form::text('z', Input::old('z'), array('class' => 'form-control', 'placeholder' => '2111')) }}
-</div>
-
-<div class="form-group">
 	{{ Form::label('volume', 'Volume (in cbm):') }}
 	{{ Form::text('volume', Input::old('volume'), array('class' => 'form-control', 'placeholder' => '5553')) }}
 </div>

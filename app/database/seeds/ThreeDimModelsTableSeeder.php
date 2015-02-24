@@ -15,9 +15,6 @@ class ThreeDimModelsTableSeeder extends Seeder {
 			ThreeDimModel::create(array(
 				'id' => $index,
 				'name' => 'Model #'.$index,
-				'x' => $faker->randomFloat(),
-				'y' => $faker->randomFloat(),
-				'z' => $faker->randomFloat(),
 				'volume' => $faker->randomFloat(),
 				'weight' => $faker->randomFloat(),
                 'data' => 'default.stl'
