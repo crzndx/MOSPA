@@ -14,12 +14,6 @@ Edit Manufacturer
 
 	{{ Form::model($manufacturer, array('route' => array('manufacturers.update', $manufacturer->id), 'method' => 'PUT')) }}
 
-
-	<div class="form-group">
-		{{ Form::label('id', 'ID:') }}
-		{{ Form::number('id', $manufacturer->id , array('class' => 'form-control')) }}
-	</div>
-
 	<div class="form-group">
 		{{ Form::label('name', 'Name:') }}
 		{{ Form::text('name', $manufacturer->name, array('class' => 'form-control')) }}

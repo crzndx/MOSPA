@@ -2,10 +2,9 @@
 
 class Material extends \Eloquent {
 	protected $table = "Materials";
-	protected $guarded = array('_token');
+	protected $guarded = array('_token','id');
 
 	public static $rules = array(
-		'id' => 'required|numeric',
 		'name' => 'required|min:3',
         'densityInGramsPerCm' => 'required|numeric'
 	);

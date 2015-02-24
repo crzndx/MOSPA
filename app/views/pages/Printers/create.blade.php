@@ -10,10 +10,6 @@ Create new Printer
 @endif
 
 {{ Form::open(array('route' => 'printers.store')) }}
-<div class="form-group">
-	{{ Form::label('id', 'ID:') }}
-	{{ Form::number('id', Input::old('id'), array('class' => 'form-control', 'placeholder' => 'ID')) }}
-</div>
 
 <div class="form-group">
 	{{ Form::label('name', 'Name:') }}

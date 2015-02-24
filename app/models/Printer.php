@@ -2,10 +2,9 @@
 
 class Printer extends \Eloquent {
 	protected $table = "Printers";
-	protected $guarded = array('_token');
+	protected $guarded = array('_token','id');
 
 	public static $rules = array(
-		'id' => 'required|numeric',
 		'name' => 'required|min:5'
 	);
 

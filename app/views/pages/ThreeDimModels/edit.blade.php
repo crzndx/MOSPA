@@ -14,12 +14,6 @@ Edit 3D Model
 
 {{ Form::model($threeDimModel, array('route' => array('threeDimModels.update', $threeDimModel->id), 'method' => 'PUT')) }}
 
-
-<div class="form-group">
-	{{ Form::label('id', 'ID:') }}
-	{{ Form::number('id', $threeDimModel->id , array('class' => 'form-control')) }}
-</div>
-
 <div class="form-group">
 	{{ Form::label('name', 'Name:') }}
 	{{ Form::text('name', $threeDimModel->name, array('class' => 'form-control')) }}

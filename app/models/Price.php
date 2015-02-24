@@ -2,10 +2,9 @@
 
 class Price extends \Eloquent {
 	protected $table = "Prices";
-	protected $guarded = array('_token');
+	protected $guarded = array('_token','id');
 
 	public static $rules = array(
-		'id' => 'required|numeric',
 		'currency' => 'required|min:1',
 		'price' => 'required|numeric'
 	);

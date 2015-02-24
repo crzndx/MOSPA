@@ -11,7 +11,6 @@
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
-
 		<th>Volume</th>
 		<th>Weight</th>
         <th>File</th>

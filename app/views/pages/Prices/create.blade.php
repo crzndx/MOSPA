@@ -11,19 +11,15 @@ Create new Pricepoint
 @endif
 
 {{ Form::open(array('route' => 'prices.store')) }}
-<div class="form-group">
-	{{ Form::label('id', 'ID:') }}
-	{{ Form::number('id', Input::old('id'), array('class' => 'form-control', 'placeholder' => 'ID')) }}
-</div>
-
-<div class="form-group">
-	{{ Form::label('currency', 'Currency symbol:') }}
-	{{ Form::text('currency', Input::old('currency'), array('class' => 'form-control', 'placeholder' => '€')) }}
-</div>
 
 <div class="form-group">
 	{{ Form::label('price', 'Price:') }}
 	{{ Form::number('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => '123.45')) }}
+</div>
+
+<div class="form-group">
+    {{ Form::label('currency', 'Currency symbol:') }}
+    {{ Form::text('currency', Input::old('currency'), array('class' => 'form-control', 'placeholder' => '€')) }}
 </div>
 
 <div class="form-group">

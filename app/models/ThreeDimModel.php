@@ -2,10 +2,9 @@
 
 class ThreeDimModel extends \Eloquent {
 	protected $table = "ThreeDimModels";
-	protected $guarded = array('_token');
+	protected $guarded = array('_token','id');
 
 	public static $rules = array(
-		'id' => 'required|numeric',
 		'name' => 'required|min:5',
 		'volume' => 'required|numeric',
 		'weight' => 'required|numeric',

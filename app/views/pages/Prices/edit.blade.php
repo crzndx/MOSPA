@@ -14,12 +14,6 @@ Edit Price
 
 {{ Form::model($price, array('route' => array('prices.update', $price->id), 'method' => 'PUT')) }}
 
-
-<div class="form-group">
-	{{ Form::label('id', 'ID:') }}
-	{{ Form::number('id', $price->id , array('class' => 'form-control')) }}
-</div>
-
 <div class="form-group">
 	{{ Form::label('currency', 'Currency:') }}
 	{{ Form::text('currency', $price->currency, array('class' => 'form-control')) }}

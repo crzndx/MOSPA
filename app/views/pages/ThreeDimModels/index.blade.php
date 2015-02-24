@@ -11,9 +11,6 @@
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
-			<th>x</th>
-			<th>y</th>
-			<th>z</th>
 			<th>volume</th>
 			<th>weight</th>
             <th>Filepath</th>

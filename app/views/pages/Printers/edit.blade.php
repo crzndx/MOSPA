@@ -14,12 +14,6 @@ Edit Printer
 
 {{ Form::model($printer, array('route' => array('printers.update', $printer->id), 'method' => 'PUT')) }}
 
-
-<div class="form-group">
-	{{ Form::label('id', 'ID:') }}
-	{{ Form::number('id', $printer->id , array('class' => 'form-control')) }}
-</div>
-
 <div class="form-group">
 	{{ Form::label('name', 'Name:') }}
 	{{ Form::text('name', $printer->name, array('class' => 'form-control')) }}

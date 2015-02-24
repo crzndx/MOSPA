@@ -14,12 +14,6 @@ Edit Material
 
 {{ Form::model($material, array('route' => array('materials.update', $material->id), 'method' => 'PUT')) }}
 
-
-<div class="form-group">
-	{{ Form::label('id', 'ID:') }}
-	{{ Form::number('id', $material->id , array('class' => 'form-control')) }}
-</div>
-
 <div class="form-group">
 	{{ Form::label('name', 'Name:') }}
 	{{ Form::text('name', $material->name, array('class' => 'form-control')) }}
