@@ -3,17 +3,22 @@
 
 ![MOSPA Logo](/screen.png)
 
-This is the first attempt to implement a publicly available pricing API for 3D Models.
+This is the first attempt to implement a publicly available price prediction tool for 3D Models using machine learning.
 Follow the instructions given below to create your own instance of MOSPA.
 
 ***
 
 ## Installation
 
+
 Clone project from Git into own directory of choice
 ```
 cd ~/htdocs // existing directory of your choice
 git clone <paste Git-clone-URL here>
+```
+Make sure to have installed Node.js from http://nodejs.org/. Check if node is installed via
+```
+node -v
 ```
 
 After cloning from git, install Composer on your OS first via https://getcomposer.org/
