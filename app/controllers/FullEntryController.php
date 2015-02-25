@@ -43,6 +43,7 @@ class FullEntryController extends \BaseController {
             'namePrinter' => 'required|min:5',
             'nameModel' => 'required|min:5',
             'data' => 'required',
+            'infill' => 'required|integer|between:0,100',
             'price' => 'required|numeric',
             'currency' => 'required|min:1'
         ));
@@ -67,6 +68,7 @@ class FullEntryController extends \BaseController {
             $threeDimModel = new ThreeDimModel();
             $threeDimModel->name  = Input::get('nameModel');
             //$threeDimModel->volume  = Input::get('volume');
+            //$threeDimModel->weight  = Input::get('weight');
             $threeDimModel->data  = Input::get('data');
 
                 // handle file input separately
@@ -75,7 +77,7 @@ class FullEntryController extends \BaseController {
                 // save .stl file in public folder to access via path later
                 $file->move(__DIR__.'/../../public/uploads/',$reName);
                 //$input['data'] = $reName;
-                 $threeDimModel->data = $reName;
+                $threeDimModel->data = $reName;
 
 
                 // extract volume automatically via .STL-file
@@ -84,7 +86,10 @@ class FullEntryController extends \BaseController {
                 $volume = $threeDimModel->volume;
 
                 // calculate weight in kg (density in g/cm3 divided by volume in cm3)/1000
-                $threeDimModel->weight = ($density * $volume) / 1000;
+                // !NO not 100% infill $threeDimModel->weight = ($density * $volume) / 1000;
+                $threeDimModel->infill = Input::get('infill');
+                $infill = $threeDimModel->infill;
+                $threeDimModel->weight = (1+($threeDimModel->infill / 100)) * $volume * $density;
 
             $threeDimModel->save();
 

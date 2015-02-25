@@ -17,6 +17,7 @@ class ThreeDimModelsTableSeeder extends Seeder {
 				'name' => 'Model #'.$index,
 				'volume' => $faker->randomFloat(),
 				'weight' => $faker->randomFloat(),
+                'infill' => $faker->rand(1,100),
                 'data' => 'default.stl'
 			));
 		}

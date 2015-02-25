@@ -35,6 +35,11 @@ Edit 3D Model
 </div>
 
 <div class="form-group">
+    {{ Form::label('infill', 'Infill (in %):') }}
+    {{ Form::text('infill', $threeDimModel->infill, array('class' => 'form-control')) }}
+</div>
+
+<div class="form-group">
 	{{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
 </div>
 {{ Form::close() }}

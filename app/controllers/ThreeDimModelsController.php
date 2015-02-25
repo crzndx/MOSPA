@@ -143,6 +143,7 @@ class ThreeDimModelsController extends \BaseController {
 			$threeDimModel->name = Input::get('name');
 			$threeDimModel->volume = Input::get('volume');
 			$threeDimModel->weight = Input::get('weight');
+            $threeDimModel->infill = Input::get('infill');
             $threeDimModel->data = Input::get('data');
 			$threeDimModel->save();
 

@@ -13,6 +13,7 @@
 			<th>Name</th>
 			<th>volume</th>
 			<th>weight</th>
+            <th>Infill</th>
             <th>Filepath</th>
 			<th>Edit?</th>
 			<th>Delete?</th>
@@ -25,6 +26,7 @@
 			<td>{{{ $threeDimModel->name }}}</td>
 			<td>{{{ $threeDimModel->volume }}}</td>
 			<td>{{{ $threeDimModel->weight }}}</td>
+            <td>{{{ $threeDimModel->infill }}}</td>
             <td>{{{ $threeDimModel->data }}}</td>
 			<td>{{ link_to_route('threeDimModels.edit', 'Edit', array($threeDimModel->id), array('class' => 'btn btn-info')) }}</td>
 			<td>

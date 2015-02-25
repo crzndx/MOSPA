@@ -13,6 +13,7 @@
 		<th>Name</th>
 		<th>Volume</th>
 		<th>Weight</th>
+        <th>Infill</th>
         <th>File</th>
 	</tr>
 	</thead>
@@ -22,6 +23,7 @@
 		<td>{{{ $threeDimModel->name }}}</td>
 		<td>{{{ $threeDimModel->volume }}}</td>
 		<td>{{{ $threeDimModel->weight }}}</td>
+        <td>{{{ $threeDimModel->infill }}}</td>
         <td>{{{ $threeDimModel->data }}}</td>
 	</tr>
 	</tbody>

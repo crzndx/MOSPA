@@ -8,6 +8,7 @@ class ThreeDimModel extends \Eloquent {
 		'name' => 'required|min:5',
 		'volume' => 'required|numeric',
 		'weight' => 'required|numeric',
+        'infill' => 'required|integer|between:0,100',
         'data' => 'required'
 	);
 

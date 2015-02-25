@@ -48,7 +48,7 @@
 
     <!-- not needed anymore, automatic calculation
     <div class="form-group">
-        {{ Form::label('volume', 'Volume (in cbm):') }}
+        {{ Form::label('volume', 'Volume (in cm^3):') }}
         {{ Form::text('volume', Input::old('volume'), array('class' => 'form-control', 'placeholder' => '5553')) }}
     </div>
 
@@ -61,6 +61,11 @@
     <div class="form-group">
         {{ Form::label('data', 'Upload STL file:')}}
         {{ Form::file('data') }}
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('infill', 'Infill (in %):') }}
+        {{ Form::text('infill', Input::old('infill'), array('class' => 'form-control', 'placeholder' => '10')) }}
     </div>
 
     <h2>Price</h2>
