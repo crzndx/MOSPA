@@ -240,6 +240,15 @@
 			-->
 			<li>
 				<a class="active" href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ URL::to('fullEntry/create') }}">Learn from 3D Model</a>
+                    </li>
+                    <li>
+                        <a href="#">Predict price for 3D Model</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
 			</li>
 			<li>
 				<a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Manufacturers<span class="fa arrow"></span></a>

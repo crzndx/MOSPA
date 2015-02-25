@@ -13,8 +13,8 @@ Create new Material
 {{ Form::open(array('route' => 'materials.store')) }}
 
 <div class="form-group">
-	{{ Form::label('name', 'Name:') }}
-	{{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Max Mustermann')) }}
+	{{ Form::label('name', 'Material name:') }}
+	{{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Plastic')) }}
 </div>
 
 <div class="form-group">

@@ -119,4 +119,54 @@
 	</div>
 </div>
 <!-- /row -->
+
+
+<div class="row">
+<div class="col-lg-6">
+    <div class="panel panel-teal">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-graduation-cap fa-4x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                    <div class="huge">Learn</div>
+                    <div>by creating a 3D model with known price </div>
+                </div>
+            </div>
+        </div>
+        <a href="/fullEntry/create">
+            <div class="panel-footer">
+                <span class="pull-left">Train model</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <div class="panel panel-violet">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-9 text-left">
+                    <div class="huge">Predict</div>
+                    <div>price for an unknown 3D model </div>
+                </div>
+                <div class="col-xs-3 text-right">
+                    <i class="fa fa-lightbulb-o fa-4x"></i>
+                </div>
+            </div>
+        </div>
+        <a href="/manufacturers">
+            <div class="panel-footer">
+                <span class="pull-left">Predict price</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
+    </div>
+</div>
+</div>
+
 @stop

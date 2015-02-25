@@ -65,6 +65,42 @@
 }
 
 
+.panel-teal {
+    border-color: #374789!important;
+}
+
+.panel-teal .panel-heading {
+    border-color: #374789;
+    color: #fff;
+    background-color: #374789;
+}
+
+.panel-teal a {
+    color: #374789;
+}
+
+.panel-teal a:hover {
+    color: #374789;
+}
+
+
+.panel-violet {
+    border-color: #ca42ac !important;
+}
+
+.panel-violet .panel-heading {
+    border-color: #ca42ac;
+    color: #fff;
+    background-color: #ca42ac;
+}
+
+.panel-violet a {
+    color: #ca42ac;
+}
+
+.panel-violet a:hover {
+    color: #ca42ac;
+}
 
 
 

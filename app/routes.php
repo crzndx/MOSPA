@@ -16,9 +16,11 @@ Route::get('dashboard', 'DashboardsController@index');
 Route::get('dashboards', 'DashboardsController@index');
 Route::get('/', 'DashboardsController@index');
 
+/* complex pages */
+Route::resource('fullEntry', 'fullEntryController');
+
 /* joined pages */
 Route::get('manufacturers/joined','ManufacturersController@joined');
-
 
 /* JSON responses for models*/
 Route::get('printers/json','PrintersController@json');
