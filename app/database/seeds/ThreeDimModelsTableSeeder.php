@@ -12,12 +12,13 @@ class ThreeDimModelsTableSeeder extends Seeder {
 		$rand = rand(1,100);
 		foreach(range(1, $rand) as $index)
 		{
+            $rInt = rand(1,100);
 			ThreeDimModel::create(array(
 				'id' => $index,
 				'name' => 'Model #'.$index,
 				'volume' => $faker->randomFloat(),
 				'weight' => $faker->randomFloat(),
-                'infill' => $faker->rand(1,100),
+                'infill' => $rInt,
                 'data' => 'default.stl'
 			));
 		}

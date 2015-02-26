@@ -19,7 +19,6 @@ class CreateMaterialPriceTable extends Migration {
 			$table->foreign('Material_id')->references('id')->on('Materials')->onDelete('cascade');
 			$table->integer('Price_id')->unsigned()->index();
 			$table->foreign('Price_id')->references('id')->on('Prices')->onDelete('cascade');
-			$table->timestamps();
 		});
 	}
 

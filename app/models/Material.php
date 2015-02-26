@@ -10,14 +10,14 @@ class Material extends \Eloquent {
 	);
 
 	public function printers() {
-		return $this->belongsToMany('Printer');
+		return $this->belongsToMany('Printer')->withPivot('Material_Printer');
 	}
 
 	public function prices() {
-		return $this->belongsToMany('Price');
+		return $this->belongsToMany('Price')->withPivot('Material_Price');
 	}
 
 	public function threeDimModel() {
-		return $this->belongsToMany('ThreeDimModel','ThreeDimModels','id');
+		return $this->belongsToMany('ThreeDimModel','ThreeDimModels','id')->withPivot('Material_Three_Dim_Model');
 	}
 }

@@ -19,7 +19,6 @@ class CreateMaterialPrinterTable extends Migration {
 			$table->foreign('Material_id')->references('id')->on('Materials')->onDelete('cascade');
 			$table->integer('Printer_id')->unsigned()->index();
 			$table->foreign('Printer_id')->references('id')->on('Printers')->onDelete('cascade');
-			$table->timestamps();
 		});
 	}
 

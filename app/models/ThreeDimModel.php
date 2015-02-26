@@ -13,10 +13,10 @@ class ThreeDimModel extends \Eloquent {
 	);
 
 	public function material() {
-		return $this->belongsToMany('Material');
+		return $this->belongsToMany('Material')->withPivot('Material_Three_Dim_Model');
 	}
 
 	public function price() {
-		return $this->belongsToMany('Price');
+		return $this->belongsToMany('Price')->withPivot('Price_Three_Dim_Model');
 	}
 }

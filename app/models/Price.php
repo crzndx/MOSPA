@@ -10,10 +10,10 @@ class Price extends \Eloquent {
 	);
 
 	public function material() {
-		return $this->belongsToMany('Material');
+		return $this->belongsToMany('Material')->withPivot('Material_Price');
 	}
 
 	public function model() {
-		return $this->belongsToMany('ThreeDimModel');
+		return $this->belongsToMany('ThreeDimModel')->withPivot('Price_Three_Dim_Model');
 	}
 }

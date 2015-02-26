@@ -19,7 +19,6 @@ class CreatePriceThreeDimModelTable extends Migration {
 			$table->foreign('Price_id')->references('id')->on('Prices')->onDelete('cascade');
 			$table->integer('Three_Dim_Model_id')->unsigned()->index();
 			$table->foreign('Three_Dim_Model_id')->references('id')->on('ThreeDimModels')->onDelete('cascade');
-			$table->timestamps();
 		});
 	}
 

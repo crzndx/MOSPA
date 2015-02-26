@@ -10,6 +10,6 @@ class Manufacturer extends \Eloquent {
 	);
 
 	public function printers() {
-		return $this->belongsToMany('Printer');
+		return $this->belongsToMany('Printer')->withPivot('Manufacturer_Printer');
 	}
 }

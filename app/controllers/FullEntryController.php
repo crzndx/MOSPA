@@ -98,9 +98,17 @@ class FullEntryController extends \BaseController {
             $price->currency  = Input::get('currency');
             $price->save();
 
-            //$new_recipe->creator_id = Auth::user()->id;
+            // Fill relationship tables
+                $printer->manufacturer()->attach($manufacturer->id);
+                $printer->supports_materials()->attach($material->id);
 
-            //@TODO hier Relationships noch eintragen!!!
+                //$material->prices()->attach($price->id); @!important Price as model price vs. price for material! material price not defined yet
+
+                $threeDimModel->material()->attach($material->id);
+                $threeDimModel->price()->attach($price->id);
+
+
+
             return View::make('pages.FullEntry.index');
         }
 

@@ -19,7 +19,6 @@ class CreateMaterialThreeDimModelTable extends Migration {
 			$table->foreign('Material_id')->references('id')->on('Materials')->onDelete('cascade');
 			$table->integer('Three_Dim_Model_id')->unsigned()->index();
 			$table->foreign('Three_Dim_Model_id')->references('id')->on('ThreeDimModels')->onDelete('cascade');
-			$table->timestamps();
 		});
 	}
 

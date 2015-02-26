@@ -30,7 +30,7 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('densityInGramsPerCm', 'Density (in g/cm^3:') }}
+        {{ Form::label('densityInGramsPerCm', 'Density (in g/cm^3):') }}
         {{ Form::text('densityInGramsPerCm', Input::old('densityInGramsPerCm'), array('class' => 'form-control', 'placeholder' => '2.21')) }}
     </div>
 
