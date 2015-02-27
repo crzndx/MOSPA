@@ -203,6 +203,7 @@
 	<!-- /.dropdown-alerts -->
 </li>
 <!-- /.dropdown -->
+ <!--
 <li class="dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -216,8 +217,7 @@
 		<li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 		</li>
 	</ul>
-	<!-- /.dropdown-user -->
-</li>
+</li>-->
 <!-- /.dropdown -->
 </ul>
 <!-- /.navbar-top-links -->
@@ -240,16 +240,31 @@
 			-->
 			<li>
 				<a class="active" href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+			</li>
+
+            <li>
+                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> Learn<span class="fa arrow"></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{ URL::to('fullEntry/create') }}">Learn from 3D Model</a>
                     </li>
                     <li>
-                        <a href="#">Predict price for 3D Model</a>
+                        <a href="{{ URL::to('fullEntry') }}">Show all learned 3D Models</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
-			</li>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-lightbulb-o fa-fw"></i> Predict<span class="fa arrow"></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ URL::to('predictPrice') }}">Predict price for 3D Model</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
 			<li>
 				<a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Manufacturers<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">

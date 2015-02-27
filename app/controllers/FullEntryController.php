@@ -189,9 +189,6 @@ class FullEntryController extends \BaseController {
             // Fill relationship tables
                 $printer->manufacturer()->attach($manufacturer->id);
                 $printer->supports_materials()->attach($material->id);
-
-                //$material->prices()->attach($price->id); @!important Price as model price vs. price for material! material price not defined yet
-
                 $threeDimModel->material()->attach($material->id);
                 $threeDimModel->price()->attach($price->id);
 
@@ -215,7 +212,7 @@ class FullEntryController extends \BaseController {
 	public function show($id)
 	{
 
-        return View::make('pages.FullEntry.show', [
+        return View::make('pages.FullEntry.index', [
             'fullEntry' => $id
         ]);
 	}

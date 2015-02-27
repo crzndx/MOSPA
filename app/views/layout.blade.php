@@ -45,7 +45,7 @@
 	<![endif]-->
 
 	<!-- ConvNetJs Deep Learning -->
-	{{ HTML::script('js/convnet-min.js') }}
+	{{ HTML::script('js/regression.js') }}
 
 </head>
 
@@ -81,7 +81,10 @@
 {{ HTML::script('theme/js/jquery.js') }}
 {{ HTML::script('theme/js/bootstrap.min.js') }}
 
+{{ HTML::script('theme/js/jquery.flot.js') }}
+
 {{ HTML::script('theme/js/plugins/metisMenu/metisMenu.min.js') }}
+
 
 {{ HTML::script('theme/js/plugins/morris/raphael.min.js') }}
 {{ HTML::script('theme/js/plugins/morris/morris.min.js') }}
