@@ -1,7 +1,7 @@
 <?php
 
 class Manufacturer extends \Eloquent {
-	protected $table = "Manufacturers";
+	protected $table = "manufacturers";
 	protected $guarded = array('_token','id');
 
 	public static $rules = array(
@@ -10,6 +10,6 @@ class Manufacturer extends \Eloquent {
 	);
 
 	public function printers() {
-		return $this->belongsToMany('Printer')->withPivot('Manufacturer_Printer');
+		return $this->belongsToMany('Printer')->withPivot('manufacturer_printer');
 	}
 }

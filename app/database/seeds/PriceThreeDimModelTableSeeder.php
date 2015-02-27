@@ -14,8 +14,8 @@ class PriceThreeDimModelTableSeeder extends Seeder {
 		{
 			PriceThreeDimModel::create([
 				'id' => $index,
-				'Price_id' => $index,
-				'Three_Dim_Model_id' => $index
+				'price_id' => $index,
+				'three_dim_model_id' => $index
 			]);
 		}
 	}

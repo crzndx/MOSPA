@@ -12,13 +12,13 @@ class CreateMaterialThreeDimModelTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Material_Three_Dim_Model', function(Blueprint $table)
+		Schema::create('material_three_dim_model', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('Material_id')->unsigned()->index();
-			$table->foreign('Material_id')->references('id')->on('Materials')->onDelete('cascade');
-			$table->integer('Three_Dim_Model_id')->unsigned()->index();
-			$table->foreign('Three_Dim_Model_id')->references('id')->on('ThreeDimModels')->onDelete('cascade');
+			$table->integer('material_id')->unsigned()->index();
+			$table->foreign('material_id')->references('id')->on('Materials')->onDelete('cascade');
+			$table->integer('three_dim_model_id')->unsigned()->index();
+			$table->foreign('three_dim_model_id')->references('id')->on('ThreeDimModels')->onDelete('cascade');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateMaterialThreeDimModelTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Material_Three_Dim_Model');
+		Schema::drop('material_three_dim_model');
 	}
 
 }

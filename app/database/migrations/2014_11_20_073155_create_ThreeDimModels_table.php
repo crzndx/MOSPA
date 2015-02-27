@@ -12,7 +12,7 @@ class CreateThreeDimModelsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ThreeDimModels', function(Blueprint $table)
+		Schema::create('threedimmodels', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('name'); // maybe md5 of file?
@@ -32,7 +32,7 @@ class CreateThreeDimModelsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ThreeDimModels');
+		Schema::drop('threedimmodels');
 	}
 
 }

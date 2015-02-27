@@ -1,7 +1,7 @@
 <?php
 
 class Price extends \Eloquent {
-	protected $table = "Prices";
+	protected $table = "prices";
 	protected $guarded = array('_token','id');
 
 	public static $rules = array(
@@ -10,10 +10,10 @@ class Price extends \Eloquent {
 	);
 
 	public function material() {
-		return $this->belongsToMany('Material')->withPivot('Material_Price');
+		return $this->belongsToMany('Material')->withPivot('material_price');
 	}
 
 	public function model() {
-		return $this->belongsToMany('ThreeDimModel')->withPivot('Price_Three_Dim_Model');
+		return $this->belongsToMany('ThreeDimModel')->withPivot('price_three_dim_model');
 	}
 }

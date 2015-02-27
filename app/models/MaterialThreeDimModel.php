@@ -1,6 +1,6 @@
 <?php
 
 class MaterialThreeDimModel extends \Eloquent {
-	protected $table = "Material_Three_Dim_Model";
+	protected $table = "material_three_dim_model";
     public $timestamps = false;
 }

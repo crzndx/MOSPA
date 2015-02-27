@@ -12,13 +12,13 @@ class CreateMaterialPriceTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Material_Price', function(Blueprint $table)
+		Schema::create('material_price', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('Material_id')->unsigned()->index();
-			$table->foreign('Material_id')->references('id')->on('Materials')->onDelete('cascade');
-			$table->integer('Price_id')->unsigned()->index();
-			$table->foreign('Price_id')->references('id')->on('Prices')->onDelete('cascade');
+			$table->integer('material_id')->unsigned()->index();
+			$table->foreign('material_id')->references('id')->on('Materials')->onDelete('cascade');
+			$table->integer('price_id')->unsigned()->index();
+			$table->foreign('price_id')->references('id')->on('Prices')->onDelete('cascade');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateMaterialPriceTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Material_Price');
+		Schema::drop('material_price');
 	}
 
 }

@@ -12,7 +12,7 @@ class CreateMaterialsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Materials', function(Blueprint $table)
+		Schema::create('materials', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('name');
@@ -29,7 +29,7 @@ class CreateMaterialsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Materials');
+		Schema::drop('materials');
 	}
 
 }

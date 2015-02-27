@@ -1,6 +1,6 @@
 <?php
 
 class MaterialPrinter extends \Eloquent {
-	protected $table = "Material_Printer";
+	protected $table = "material_printer";
     public $timestamps = false;
 }

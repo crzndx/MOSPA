@@ -17,6 +17,7 @@ Route::get('dashboards', 'DashboardsController@index');
 Route::get('/', 'DashboardsController@index');
 
 /* complex pages */
+Route::resource('fullEntry/aggregated', 'fullEntryController@aggregated');
 Route::resource('fullEntry', 'fullEntryController');
 
 /* joined pages */

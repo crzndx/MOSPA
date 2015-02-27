@@ -12,7 +12,7 @@ class CreatePricesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Prices', function(Blueprint $table)
+		Schema::create('prices', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('currency');
@@ -29,7 +29,7 @@ class CreatePricesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Prices');
+		Schema::drop('prices');
 	}
 
 }

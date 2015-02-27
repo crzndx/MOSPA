@@ -15,16 +15,17 @@ Create new 3D Model
 	{{ Form::label('name', 'Name:') }}
 	{{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Fancy object name')) }}
 </div>
-
+<!-- done automatically
 <div class="form-group">
 	{{ Form::label('volume', 'Volume (in cm^3):') }}
 	{{ Form::text('volume', Input::old('volume'), array('class' => 'form-control', 'placeholder' => '5553')) }}
 </div>
-
+-->
 <div class="form-group">
 	{{ Form::label('weight', 'Weight (in kg):') }}
 	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-control', 'placeholder' => '0.120')) }}
 </div>
+
 
 <div class="form-group">
     {{ Form::label('data', 'Upload STL file:')}}

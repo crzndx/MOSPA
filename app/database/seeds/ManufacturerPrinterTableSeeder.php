@@ -14,8 +14,8 @@ class ManufacturerPrinterTableSeeder extends Seeder {
 		{
 			ManufacturerPrinter::create([
 				'id' => $index,
-				'Manufacturer_id' => $index,
-				'Printer_id' => $index
+				'manufacturer_id' => $index,
+				'printer_id' => $index
 			]);
 		}
 	}

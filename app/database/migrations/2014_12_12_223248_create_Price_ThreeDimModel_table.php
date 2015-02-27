@@ -12,13 +12,13 @@ class CreatePriceThreeDimModelTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Price_Three_Dim_Model', function(Blueprint $table)
+		Schema::create('price_three_dim_model', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('Price_id')->unsigned()->index();
-			$table->foreign('Price_id')->references('id')->on('Prices')->onDelete('cascade');
-			$table->integer('Three_Dim_Model_id')->unsigned()->index();
-			$table->foreign('Three_Dim_Model_id')->references('id')->on('ThreeDimModels')->onDelete('cascade');
+			$table->integer('price_id')->unsigned()->index();
+			$table->foreign('price_id')->references('id')->on('Prices')->onDelete('cascade');
+			$table->integer('three_dim_model_id')->unsigned()->index();
+			$table->foreign('three_dim_model_id')->references('id')->on('ThreeDimModels')->onDelete('cascade');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreatePriceThreeDimModelTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Price_Three_Dim_Model');
+		Schema::drop('price_three_dim_model');
 	}
 
 }

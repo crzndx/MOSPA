@@ -14,8 +14,8 @@ class MaterialPriceTableSeeder extends Seeder {
 		{
 			MaterialPrice::create([
 				'id' => $index,
-				'Material_id' => $index,
-				'Price_id' => $index
+				'material_id' => $index,
+				'price_id' => $index
 			]);
 		}
 	}

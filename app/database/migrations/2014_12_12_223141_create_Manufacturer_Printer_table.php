@@ -12,13 +12,13 @@ class CreateManufacturerPrinterTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Manufacturer_Printer', function(Blueprint $table)
+		Schema::create('manufacturer_printer', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('Manufacturer_id')->unsigned()->index();
-			$table->foreign('Manufacturer_id')->references('id')->on('Manufacturers')->onDelete('cascade');
-			$table->integer('Printer_id')->unsigned()->index();
-			$table->foreign('Printer_id')->references('id')->on('Printers')->onDelete('cascade');
+			$table->integer('manufacturer_id')->unsigned()->index();
+			$table->foreign('manufacturer_id')->references('id')->on('Manufacturers')->onDelete('cascade');
+			$table->integer('printer_id')->unsigned()->index();
+			$table->foreign('printer_id')->references('id')->on('Printers')->onDelete('cascade');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateManufacturerPrinterTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Manufacturer_Printer');
+		Schema::drop('manufacturer_printer');
 	}
 
 }

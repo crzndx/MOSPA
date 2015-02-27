@@ -1,6 +1,6 @@
 <?php
 
 class MaterialPrice extends \Eloquent {
-	protected $table = "Material_Price";
+	protected $table = "material_price";
     public $timestamps = false;
 }

@@ -12,13 +12,13 @@ class CreateMaterialPrinterTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Material_Printer', function(Blueprint $table)
+		Schema::create('material_printer', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('Material_id')->unsigned()->index();
-			$table->foreign('Material_id')->references('id')->on('Materials')->onDelete('cascade');
-			$table->integer('Printer_id')->unsigned()->index();
-			$table->foreign('Printer_id')->references('id')->on('Printers')->onDelete('cascade');
+			$table->integer('material_id')->unsigned()->index();
+			$table->foreign('material_id')->references('id')->on('Materials')->onDelete('cascade');
+			$table->integer('printer_id')->unsigned()->index();
+			$table->foreign('printer_id')->references('id')->on('Printers')->onDelete('cascade');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateMaterialPrinterTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Material_Printer');
+		Schema::drop('material_printer');
 	}
 
 }

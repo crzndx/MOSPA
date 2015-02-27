@@ -10,8 +10,89 @@ class FullEntryController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('pages.FullEntry.index');
+        $materialName = 'PLA';
+        $allFullEntries = DB::table('material_three_dim_model')
+            //->join('material_three_dim_model', 'materials.id', '=', 'material_three_dim_model.material_id')
+            ->join('materials', function($join) use ($materialName)
+            {
+                $join->on('material_three_dim_model.material_id', '=','materials.id')
+                    ->where('materials.name', 'like', $materialName);
+            })
+            ->join('threedimmodels','material_three_dim_model.three_dim_model_id','=','threedimmodels.id')
+            ->join('price_three_dim_model','material_three_dim_model.three_dim_model_id','=','price_three_dim_model.three_dim_model_id')
+            ->join('prices','price_three_dim_model.price_id','=','prices.id')
+            ->select(
+            // Pivot
+                'material_three_dim_model.material_id',
+                'material_three_dim_model.three_dim_model_id',
+                // Price
+                'price_three_dim_model.price_id',
+                'prices.price',
+                'prices.currency',
+                // Material
+                'materials.name',
+                'materials.densityInGramsPerCm',
+                // 3D Model
+                //'threedimmodels.name',
+                'threedimmodels.volume',
+                'threedimmodels.weight',
+                'threedimmodels.infill',
+                'threedimmodels.data')
+            ->get();
+
+        //cast stdClass into array for output
+        $array = (array) $allFullEntries;
+
+        return View::make('pages.FullEntry.index', [
+            'fullEntries' => $array
+        ]);
 	}
+
+    /**
+     * Display a listing of all entries in the database
+     * GET /fullentry/aggregated
+     *
+     * @return Response
+     */
+    public function aggregated()
+    {
+        //@TODO aufräumen
+        $materialName = 'PLA';
+
+        $shares = DB::table('material_three_dim_model')
+            //->join('material_three_dim_model', 'materials.id', '=', 'material_three_dim_model.material_id')
+            ->join('materials', function($join) use ($materialName)
+            {
+                $join->on('material_three_dim_model.material_id', '=','materials.id')
+                    ->where('materials.name', 'like', $materialName);
+            })
+            ->join('threedimmodels','material_three_dim_model.three_dim_model_id','=','threedimmodels.id')
+            ->join('price_three_dim_model','material_three_dim_model.three_dim_model_id','=','price_three_dim_model.three_dim_model_id')
+            ->join('prices','price_three_dim_model.price_id','=','prices.id')
+            ->select(
+                // Pivot
+                'material_three_dim_model.material_id',
+                'material_three_dim_model.three_dim_model_id',
+                // Price
+                'price_three_dim_model.price_id',
+                'prices.price',
+                'prices.currency',
+                // Material
+                'materials.name',
+                'materials.densityInGramsPerCm',
+                // 3D Model
+                //'threedimmodels.name',
+                'threedimmodels.volume',
+                'threedimmodels.infill',
+                'threedimmodels.weight',
+                'threedimmodels.data')
+            ->get();
+
+
+        return $shares;
+
+
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -85,11 +166,12 @@ class FullEntryController extends \BaseController {
                 $threeDimModel->volume = $output;
                 $volume = $threeDimModel->volume;
 
-                // calculate weight in kg (density in g/cm3 divided by volume in cm3)/1000
-                // !NO not 100% infill $threeDimModel->weight = ($density * $volume) / 1000;
+                // get percentual infill of a 3d body
                 $threeDimModel->infill = Input::get('infill');
                 $infill = $threeDimModel->infill;
-                $threeDimModel->weight = (1+($threeDimModel->infill / 100)) * $volume * $density;
+
+                // calculate weight in g (density in g/cm3 * volme of the 3d model * (1+infill/100) percentual factor)
+                $threeDimModel->weight = (1+($infill / 100)) * $volume * $density;
 
             $threeDimModel->save();
 
@@ -107,9 +189,9 @@ class FullEntryController extends \BaseController {
                 $threeDimModel->material()->attach($material->id);
                 $threeDimModel->price()->attach($price->id);
 
-
-
-            return View::make('pages.FullEntry.index');
+            return View::make('pages.FullEntry.index', [
+                'fullEntries' => array() //@todo
+            ]);
         }
 
         return Redirect::route('fullEntry.create')

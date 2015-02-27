@@ -12,7 +12,7 @@ class CreateManufacturersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Manufacturers', function(Blueprint $table)
+		Schema::create('manufacturers', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('name');
@@ -29,7 +29,7 @@ class CreateManufacturersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Manufacturers');
+		Schema::drop('manufacturers');
 	}
 
 }

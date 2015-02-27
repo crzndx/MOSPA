@@ -76,7 +76,8 @@
 
     <div class="form-group">
         {{ Form::label('currency', 'Currency symbol:') }}
-        {{ Form::text('currency', Input::old('currency'), array('class' => 'form-control', 'placeholder' => '€')) }}
+       <!-- {{ Form::text('currency', Input::old('currency'), array('class' => 'form-control', 'placeholder' => '€')) }} -->
+        {{ Form::select('currency', array('€' => '€ (Euro)', '$' => '$ (Dollar)'), '€') }}
     </div>
 
 

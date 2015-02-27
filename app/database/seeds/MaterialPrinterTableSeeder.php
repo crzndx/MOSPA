@@ -14,8 +14,8 @@ class MaterialPrinterTableSeeder extends Seeder {
 		{
 			MaterialPrinter::create([
 				'id' => $index,
-				'Material_id' => $index,
-				'Printer_id' => $index
+				'material_id' => $index,
+				'printer_id' => $index
 			]);
 		}
 	}

@@ -14,8 +14,8 @@ class MaterialThreeDimModelTableSeeder extends Seeder {
 		{
 			MaterialThreeDimModel::create([
 				'id' => $index,
-				'Material_id' => $index,
-				'Three_Dim_Model_id' => $index
+				'material_id' => $index,
+				'three_dim_model_id' => $index
 			]);
 		}
 	}

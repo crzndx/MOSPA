@@ -14,7 +14,7 @@ class PricesTableSeeder extends Seeder {
 		{
 			Price::create(array(
 				'id' => $index,
-				'currency' => $faker->randomElement(array('€','$','¥','£')),
+				'currency' => '€',
 				'price' => $faker->randomFloat()
 			));
 		}
