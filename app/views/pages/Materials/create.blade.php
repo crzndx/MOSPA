@@ -23,6 +23,11 @@ Create new Material
 </div>
 
 <div class="form-group">
+    {{ Form::label('pricePerKg', 'Material Price (per kg):') }}
+    {{ Form::text('pricePerKg', Input::old('pricePerKg'), array('class' => 'form-control', 'placeholder' => '1.11')) }}
+</div>
+
+<div class="form-group">
 	{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
 </div>
 {{ Form::close() }}

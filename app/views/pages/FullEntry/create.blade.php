@@ -2,7 +2,7 @@
 @extends('layout')
 
 @section('title')
-    Create Full Entry
+    Learn from 3D Models (with known prices)
 @stop
 
 @section('content')
@@ -32,6 +32,11 @@
     <div class="form-group">
         {{ Form::label('densityInGramsPerCm', 'Density (in g/cm^3):') }}
         {{ Form::text('densityInGramsPerCm', Input::old('densityInGramsPerCm'), array('class' => 'form-control', 'placeholder' => '2.21')) }}
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('pricePerKg', 'Price (per kg):') }}
+        {{ Form::text('pricePerKg', Input::old('pricePerKg'), array('class' => 'form-control', 'placeholder' => '1.11')) }}
     </div>
 
     <h2>Printer</h2>
@@ -65,13 +70,13 @@
 
     <div class="form-group">
         {{ Form::label('infill', 'Infill (in %):') }}
-        {{ Form::text('infill', Input::old('infill'), array('class' => 'form-control', 'placeholder' => '10')) }}
+        {{ Form::number('infill', Input::old('infill'), array('class' => 'form-control', 'placeholder' => '10')) }}
     </div>
 
-    <h2>Price</h2>
+    <h2>Price of the model</h2>
     <div class="form-group">
         {{ Form::label('price', 'Price:') }}
-        {{ Form::number('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => '123.45')) }}
+        {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => '123.45')) }}
     </div>
 
     <div class="form-group">

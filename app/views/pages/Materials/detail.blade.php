@@ -12,13 +12,15 @@ Material
 		<th>ID</th>
 		<th>Name</th>
         <th>Density (in g/cm^3)</th>
+        <th>Price (per kg)</th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr>
-		<td>{{{ $manufacturer->id }}}</td>
-		<td>{{{ $manufacturer->name }}}</td>
-        <td>{{{ $manufacturer->densityInGramsPerCm }}}</td>
+		<td>{{{ $material->id }}}</td>
+		<td>{{{ $material->name }}}</td>
+        <td>{{{ $material->densityInGramsPerCm }}}</td>
+        <td>{{{ $material->densityInGramsPerCm }}}</td>
 	</tr>
 	</tbody>
 </table>

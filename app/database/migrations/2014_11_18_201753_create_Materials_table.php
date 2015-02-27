@@ -17,6 +17,7 @@ class CreateMaterialsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
             $table->float('densityInGramsPerCm');
+            $table->float('pricePerKg');
 			$table->timestamps();
 		});
 	}

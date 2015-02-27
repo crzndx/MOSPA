@@ -32,6 +32,7 @@ class FullEntryController extends \BaseController {
                 // Material
                 'materials.name',
                 'materials.densityInGramsPerCm',
+                'materials.pricePerKg',
                 // 3D Model
                 //'threedimmodels.name',
                 'threedimmodels.volume',
@@ -41,10 +42,12 @@ class FullEntryController extends \BaseController {
             ->get();
 
         //cast stdClass into array for output
-        $array = (array) $allFullEntries;
+        $array = (array) $allFullEntries;   // passing to blade
+        $js_data = $array; // passing to JS
 
         return View::make('pages.FullEntry.index', [
-            'fullEntries' => $array
+            'fullEntries' => $array,
+            'js_data' => $js_data
         ]);
 	}
 
@@ -80,6 +83,7 @@ class FullEntryController extends \BaseController {
                 // Material
                 'materials.name',
                 'materials.densityInGramsPerCm',
+                'materials.pricePerKg',
                 // 3D Model
                 //'threedimmodels.name',
                 'threedimmodels.volume',
@@ -121,6 +125,7 @@ class FullEntryController extends \BaseController {
             'url' => 'required|min:5',
             'nameMaterial' => 'required|min:3',
             'densityInGramsPerCm' => 'required|numeric',
+            'pricePerKg' => 'required|numeric',
             'namePrinter' => 'required|min:5',
             'nameModel' => 'required|min:5',
             'data' => 'required',
@@ -140,6 +145,7 @@ class FullEntryController extends \BaseController {
             $material->name  = Input::get('nameMaterial');
             $material->densityInGramsPerCm = Input::get('densityInGramsPerCm');
                 $density = $material->densityInGramsPerCm;
+            $material->pricePerKg = Input::get('pricePerKg');
             $material->save();
 
             $printer = new Printer();
@@ -189,9 +195,8 @@ class FullEntryController extends \BaseController {
                 $threeDimModel->material()->attach($material->id);
                 $threeDimModel->price()->attach($price->id);
 
-            return View::make('pages.FullEntry.index', [
-                'fullEntries' => array() //@todo
-            ]);
+            return Redirect::route('fullEntry.create')
+                ->with('message', 'Created new entry. Feel free to add another entry!');
         }
 
         return Redirect::route('fullEntry.create')

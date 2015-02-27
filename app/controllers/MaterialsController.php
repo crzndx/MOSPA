@@ -111,6 +111,7 @@ class MaterialsController extends \BaseController {
 			$material = Material::find($id);
 			$material->name = Input::get('name');
             $material->densityInGramsPerCm = Input::get('densityInGramsPerCm');
+            $material->pricePerKg = Input::get('pricePerKg');
 			$material->save();
 
 			Session::flash('message', 'Updated material successfully');

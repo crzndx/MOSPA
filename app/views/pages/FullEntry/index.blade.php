@@ -17,6 +17,7 @@
                 <th>Material</th>
                 <th>3D Model</th>
                 <th>Material Density (in g/cm^3)</th>
+                <th>Material Price (per kg)</th>
                 <th>Model Infill (in %)</th>
                 <th>Model Volume (in cm^3)</th>
                 <th>Model Weight (in g)</th>
@@ -29,6 +30,7 @@
                     <td>{{{ $fullEntry->name }}}</td>
                     <td>{{{ $fullEntry->data }}}</td>
                     <td>{{{ $fullEntry->densityInGramsPerCm }}}</td>
+                    <td>{{{ $fullEntry->pricePerKg }}}</td>
                     <td>{{{ $fullEntry->infill }}}</td>
                     <td>{{{ $fullEntry->volume }}}</td>
                     <td>{{{ $fullEntry->weight }}}</td>
@@ -39,4 +41,12 @@
         </table>
     </div>
     <!-- /row -->
+
+    <script>
+        var data = <?php echo json_encode($js_data) ?>;
+
+        console.log(data);
+        console.log(data.length);
+        console.log(data[0].data);
+    </script>
 @stop
