@@ -45,7 +45,7 @@
 	<![endif]-->
 
 	<!-- ConvNetJs Deep Learning -->
-	{{ HTML::script('js/regression.js') }}
+	<!-- {{ HTML::script('js/regression.js') }} -->
 
 </head>
 

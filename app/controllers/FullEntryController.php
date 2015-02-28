@@ -51,52 +51,6 @@ class FullEntryController extends \BaseController {
         ]);
 	}
 
-    /**
-     * Display a listing of all entries in the database
-     * GET /fullentry/aggregated
-     *
-     * @return Response
-     */
-    public function aggregated()
-    {
-        //@TODO aufräumen
-        $materialName = 'PLA';
-
-        $shares = DB::table('material_three_dim_model')
-            //->join('material_three_dim_model', 'materials.id', '=', 'material_three_dim_model.material_id')
-            ->join('materials', function($join) use ($materialName)
-            {
-                $join->on('material_three_dim_model.material_id', '=','materials.id')
-                    ->where('materials.name', 'like', $materialName);
-            })
-            ->join('threedimmodels','material_three_dim_model.three_dim_model_id','=','threedimmodels.id')
-            ->join('price_three_dim_model','material_three_dim_model.three_dim_model_id','=','price_three_dim_model.three_dim_model_id')
-            ->join('prices','price_three_dim_model.price_id','=','prices.id')
-            ->select(
-                // Pivot
-                'material_three_dim_model.material_id',
-                'material_three_dim_model.three_dim_model_id',
-                // Price
-                'price_three_dim_model.price_id',
-                'prices.price',
-                'prices.currency',
-                // Material
-                'materials.name',
-                'materials.densityInGramsPerCm',
-                'materials.pricePerKg',
-                // 3D Model
-                //'threedimmodels.name',
-                'threedimmodels.volume',
-                'threedimmodels.infill',
-                'threedimmodels.weight',
-                'threedimmodels.data')
-            ->get();
-
-
-        return $shares;
-
-
-    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -130,7 +84,7 @@ class FullEntryController extends \BaseController {
             'nameModel' => 'required|min:5',
             'data' => 'required',
             'infill' => 'required|integer|between:0,100',
-            'price' => 'required|numeric',
+             //'price' => 'required|numeric',
             'currency' => 'required|min:1'
         ));
 
@@ -182,7 +136,10 @@ class FullEntryController extends \BaseController {
             $threeDimModel->save();
 
             $price = new Price();
-            $price->price= Input::get('price');
+            // wird jetzt berechnet!
+            //$price->price= Input::get('price');
+                // Price = Weight (in g) * (Materialprice (in kg))/1000
+                $price->price = $threeDimModel->weight * ($material->pricePerKg/1000);
             $price->currency  = Input::get('currency');
             $price->save();
 
@@ -191,9 +148,25 @@ class FullEntryController extends \BaseController {
                 $printer->supports_materials()->attach($material->id);
                 $threeDimModel->material()->attach($material->id);
                 $threeDimModel->price()->attach($price->id);
-
+            /*
             return Redirect::route('fullEntry.create')
                 ->with('message', 'Created new entry. Feel free to add another entry!');
+            */
+            // Show the price
+            return View::make('pages.FullEntry.show', [
+                'price' => $price->price,
+                'currency' => $price->currency,
+                'nameManufacturer' => $manufacturer->name,
+                'url' => $manufacturer->url,
+                'nameMaterial' => $material->name,
+                'densityInGramsPerCm' => $material->densityInGramsPerCm,
+                'pricePerKg' => $material->pricePerKg,
+                'filename' => $threeDimModel->data,
+                'volume' => $threeDimModel->volume,
+                'infill' => $threeDimModel->infill,
+                'weight' => $threeDimModel->weight
+            ]);
+
         }
 
         return Redirect::route('fullEntry.create')

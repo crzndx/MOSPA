@@ -2,7 +2,7 @@
 @extends('layout')
 
 @section('title')
-    Learn from 3D Models (with known prices)
+    Calculate price from 3D Model
 @stop
 
 @section('content')
@@ -73,11 +73,14 @@
         {{ Form::number('infill', Input::old('infill'), array('class' => 'form-control', 'placeholder' => '10')) }}
     </div>
 
-    <h2>Price of the model</h2>
+
+    <h2>Target currency</h2>
+    <!-- automatically
     <div class="form-group">
         {{ Form::label('price', 'Price:') }}
         {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => '123.45')) }}
     </div>
+    -->
 
     <div class="form-group">
         {{ Form::label('currency', 'Currency symbol:') }}
@@ -85,16 +88,15 @@
         {{ Form::select('currency', array('€' => '€ (Euro)', '$' => '$ (Dollar)'), '€') }}
     </div>
 
-
     <div class="form-group">
         {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
     </div>
     {{ Form::close() }}
 
     @if ($errors->any())
-        <div class="alert-warning">
+        <div class="alert alert-warning">
             {{ implode('', $errors->all('<li class="error">:message</li>')) }}
         </div>
-        @endif
+    @endif
 
 @stop

@@ -127,17 +127,17 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-3">
-                    <i class="fa fa-graduation-cap fa-4x"></i>
+                    <i class="fa fa-euro fa-4x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">Learn</div>
-                    <div>by creating a 3D model with known price </div>
+                    <div class="huge">Calculate price</div>
+                    <div>by uploading a 3D model </div>
                 </div>
             </div>
         </div>
         <a href="/fullEntry/create">
             <div class="panel-footer">
-                <span class="pull-left">Train model</span>
+                <span class="pull-left">Calculate price</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                 <div class="clearfix"></div>
             </div>
@@ -150,17 +150,17 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-9 text-left">
-                    <div class="huge">Predict</div>
-                    <div>price for an unknown 3D model </div>
+                    <div class="huge">Show all</div>
+                    <div>thus far calculated prices</div>
                 </div>
                 <div class="col-xs-3 text-right">
-                    <i class="fa fa-lightbulb-o fa-4x"></i>
+                    <i class="fa fa-list fa-4x"></i>
                 </div>
             </div>
         </div>
-        <a href="/manufacturers">
+        <a href="/fullEntry">
             <div class="panel-footer">
-                <span class="pull-left">Predict price</span>
+                <span class="pull-left">Show all</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                 <div class="clearfix"></div>
             </div>

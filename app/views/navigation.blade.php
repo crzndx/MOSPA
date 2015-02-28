@@ -243,23 +243,13 @@
 			</li>
 
             <li>
-                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> Learn<span class="fa arrow"></a>
+                <a href="#"><i class="fa fa-dollar fa-fw"></i> Calculate price<span class="fa arrow"></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ URL::to('fullEntry/create') }}">Learn from 3D Model</a>
+                        <a href="{{ URL::to('fullEntry/create') }}">Calculate from 3D Model</a>
                     </li>
                     <li>
-                        <a href="{{ URL::to('fullEntry') }}">Show all learned 3D Models</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
-
-            <li>
-                <a href="#"><i class="fa fa-lightbulb-o fa-fw"></i> Predict<span class="fa arrow"></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{ URL::to('predictPrice') }}">Predict price for 3D Model</a>
+                        <a href="{{ URL::to('fullEntry') }}">Show all generated prices</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
