@@ -44,9 +44,6 @@
         }
     </script>
 
-    </head>
-    <body>
-
     <div class="row correctpadding">
         <div class="text-left" style="width:430px; float:left;">
             <h2>3D Model Preview</h2>
@@ -60,7 +57,7 @@
         <div class="text-left" style="margin-left: 460px; padding-right: 0px; height: 330px;">
             <h2>Model attributes</h2>
             <div class="panel panel-default">
-                <div class="panel-body" style="padding-bottom: 0px;">
+                <div class="panel-body" style="padding-bottom: 0px; height: 430px;">
 
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
@@ -71,7 +68,7 @@
                             </tr>
                             <tr>
                                 <td>Web:</td>
-                                <td>{{{ $url }}}</td>
+                                <td><a href="{{{ $url }}}">Visit manufacturer website</a></td>
                             </tr>
                             <tr>
                                 <td>Material:</td>
@@ -79,31 +76,23 @@
                             </tr>
                             <tr>
                                 <td>Material Density:</td>
-                                <td>{{{ $densityInGramsPerCm }}} g/cm^3</td>
-                            </tr>
-                            <tr>
-                                <td>Material Density:</td>
-                                <td>{{{ $densityInGramsPerCm }}}</td>
+                                <td>{{{ $densityInGramsPerCm }}} g/cm<sup>3</sup></td>
                             </tr>
                             <tr>
                                 <td>Material Price:</td>
-                                <td>{{{ $pricePerKg }}}{{{ $currency }}}/kg</td>
-                            </tr>
-                            <tr>
-                                <td>Material Price:</td>
-                                <td>{{{ $pricePerKg }}}{{{ $currency }}} per kg</td>
+                                <td>{{{ $pricePerKg }}} {{{ $currency }}}/kg</td>
                             </tr>
                             <tr>
                                 <td>Infill Material:</td>
-                                <td>{{{ $infill }}}%</td>
+                                <td>{{{ $infill }}} %</td>
                             </tr>
                             <tr>
                                 <td>Weight:</td>
-                                <td>{{{ $weight }}}g</td>
+                                <td>{{{ $weight }}} g</td>
                             </tr>
                             <tr>
                                 <td>Volume:</td>
-                                <td>{{{ $volume }}}%</td>
+                                <td>{{{ $volume }}} cm<sup>3</sup></td>
                             </tr>
                             <tr>
                                 <td>Price:</td>

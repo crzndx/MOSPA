@@ -10,19 +10,13 @@ class FullEntryController extends \BaseController {
 	 */
 	public function index()
 	{
-        $materialName = 'PLA';
         $allFullEntries = DB::table('material_three_dim_model')
-            //->join('material_three_dim_model', 'materials.id', '=', 'material_three_dim_model.material_id')
-            ->join('materials', function($join) use ($materialName)
-            {
-                $join->on('material_three_dim_model.material_id', '=','materials.id')
-                    ->where('materials.name', 'like', $materialName);
-            })
+            ->join('materials', 'material_three_dim_model.material_id', '=','materials.id')
             ->join('threedimmodels','material_three_dim_model.three_dim_model_id','=','threedimmodels.id')
             ->join('price_three_dim_model','material_three_dim_model.three_dim_model_id','=','price_three_dim_model.three_dim_model_id')
             ->join('prices','price_three_dim_model.price_id','=','prices.id')
             ->select(
-            // Pivot
+                // Pivot
                 'material_three_dim_model.material_id',
                 'material_three_dim_model.three_dim_model_id',
                 // Price
@@ -71,7 +65,9 @@ class FullEntryController extends \BaseController {
 	 */
 	public function store()
 	{
+        // handle file input separately! multipart-form problem otherwise
         $file = Input::file('data');
+        // get rest of form input
         $input = Input::all();
 
         $validation = Validator::make($input, array(
@@ -113,16 +109,16 @@ class FullEntryController extends \BaseController {
             $threeDimModel->data  = Input::get('data');
 
                 // handle file input separately
-                $reName = $file->getClientOriginalName(); // version for debugging
-                // $reName = md5($file->getClientOriginalName().time()).".stl";  // near collission free version
+                $inputFileName = $file->getClientOriginalName(); // version for debugging
+                // $inputFileName = md5($file->getClientOriginalName().time()).".stl";  // near collission free version
                 // save .stl file in public folder to access via path later
-                $file->move(__DIR__.'/../../public/uploads/',$reName);
-                //$input['data'] = $reName;
-                $threeDimModel->data = $reName;
+                $file->move(__DIR__.'/../../public/uploads/',$inputFileName);
+                //$input['data'] = $inputFileName;
+                $threeDimModel->data = $inputFileName;
 
 
                 // extract volume automatically via .STL-file
-                $output = shell_exec("node ./app/stlextractor.js ".$reName);
+                $output = shell_exec("node ./app/stlextractor.js ".$inputFileName);
                 $threeDimModel->volume = $output;
                 $volume = $threeDimModel->volume;
 
@@ -130,14 +126,12 @@ class FullEntryController extends \BaseController {
                 $threeDimModel->infill = Input::get('infill');
                 $infill = $threeDimModel->infill;
 
-                // calculate weight in g (density in g/cm3 * volme of the 3d model * (1+infill/100) percentual factor)
+                // calculate weight in g (density in g/cm3 * volume of the 3d model * (1+infill/100) percentual factor)
                 $threeDimModel->weight = (1+($infill / 100)) * $volume * $density;
 
             $threeDimModel->save();
 
             $price = new Price();
-            // wird jetzt berechnet!
-            //$price->price= Input::get('price');
                 // Price = Weight (in g) * (Materialprice (in kg))/1000
                 $price->price = $threeDimModel->weight * ($material->pricePerKg/1000);
             $price->currency  = Input::get('currency');
@@ -148,10 +142,9 @@ class FullEntryController extends \BaseController {
                 $printer->supports_materials()->attach($material->id);
                 $threeDimModel->material()->attach($material->id);
                 $threeDimModel->price()->attach($price->id);
-            /*
-            return Redirect::route('fullEntry.create')
-                ->with('message', 'Created new entry. Feel free to add another entry!');
-            */
+
+            //$material->name = $this->someExtraWork();
+
             // Show the price
             return View::make('pages.FullEntry.show', [
                 'price' => $price->price,
@@ -225,5 +218,10 @@ class FullEntryController extends \BaseController {
 	{
 		//TODO later
 	}
+
+
+    public function someExtraWork($method) {
+        return $method;
+    }
 
 }
